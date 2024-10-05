@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.HelloController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="486.0" layoutY="49.0" prefHeight="402.0" prefWidth="351.0">
          <children>
@@ -77,7 +77,7 @@
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="194.0" text="Sign In" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="45.0" prefWidth="194.0" text="Sign In" />
          </children>
       </VBox>
       <Label layoutX="45.0" layoutY="99.0" prefHeight="69.0" prefWidth="294.0" text="Pulselytics">
