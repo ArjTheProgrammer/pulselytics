@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.HistoryController">
     <children>
         <HBox prefHeight="0.0" prefWidth="900.0">
             <children>
@@ -23,17 +23,17 @@
                 </Label>
                 <HBox prefHeight="94.0" prefWidth="600.0">
                     <children>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="134.0" text="Home">
+                        <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="100.0" prefWidth="134.0" text="Home">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Analytics">
+                        <Button mnemonicParsing="false" onAction="#switchToAnalytics" prefHeight="100.0" prefWidth="133.6" text="Analytics">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="History">
+                        <Button mnemonicParsing="false" onAction="#switchToHistory" prefHeight="100.0" prefWidth="133.6" text="History">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
