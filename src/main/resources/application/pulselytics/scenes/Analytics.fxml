@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox prefHeight="0.0" prefWidth="900.0">
+            <children>
+                <Label prefHeight="94.0" prefWidth="431.0" text="Pulselytics">
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                    <font>
+                        <Font name="System Bold" size="50.0" />
+                    </font>
+                </Label>
+                <HBox prefHeight="94.0" prefWidth="600.0">
+                    <children>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="134.0" text="Home">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Analytics">
+                            <font>
+                                <Font name="System Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="History">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </Button>
+                        <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Edit User" />
+                                <MenuItem mnemonicParsing="false" text="Log Out" />
+                            </items>
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                        </MenuButton>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

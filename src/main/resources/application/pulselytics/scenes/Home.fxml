@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="0.0" prefWidth="900.0">
+         <children>
+            <Label prefHeight="94.0" prefWidth="431.0" text="Pulselytics">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="50.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="94.0" prefWidth="600.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="134.0" text="Home">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Analytics">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="History">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Edit User" />
+                        <MenuItem mnemonicParsing="false" text="Log Out" />
+                     </items>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </MenuButton>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Label layoutX="29.0" layoutY="111.0" text="Personal Information">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <VBox layoutX="29.0" layoutY="142.0" prefHeight="321.0" prefWidth="318.0" AnchorPane.leftAnchor="29.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="318.0">
+               <children>
+                  <Label text=" Name:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="318.0">
+               <children>
+                  <Label text="Birthday:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="318.0">
+               <children>
+                  <Label text="Gender:">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="318.0">
+               <children>
+                  <Label text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="318.0">
+               <children>
+                  <Label text="Label">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <Label layoutX="406.0" layoutY="111.0" text="Average Blood Pressure">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="702.0" layoutY="113.0" prefWidth="150.0" />
+      <VBox layoutX="395.0" layoutY="163.0" prefHeight="227.0" prefWidth="470.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="103.0" prefWidth="235.0" text="Systolic">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="146.0" prefWidth="235.0" text="Diastolic">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="186.0" prefWidth="470.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="189.0" prefWidth="235.0" text="120">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="183.0" prefWidth="235.0" text="80">
+                     <font>
+                        <Font size="50.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
