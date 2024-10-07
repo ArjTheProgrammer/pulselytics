@@ -153,11 +153,11 @@
             </HBox>
          </children>
       </VBox>
-      <VBox id="InputBloodPressure" alignment="CENTER" layoutX="217.0" layoutY="13.0" prefHeight="449.0" prefWidth="430.0">
+      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="217.0" layoutY="13.0" prefHeight="449.0" prefWidth="430.0" visible="false">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="340.0">
                <children>
-                  <Button alignment="TOP_RIGHT" mnemonicParsing="false" text="x">
+                  <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#closeAddRecord" text="x">
                      <padding>
                         <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                      </padding>
@@ -229,7 +229,7 @@
             </HBox>
          </children>
       </VBox>
-      <Button layoutX="662.0" layoutY="404.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="174.0" text="+ Add Record">
+      <Button layoutX="662.0" layoutY="404.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" text="+ Add Record">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>

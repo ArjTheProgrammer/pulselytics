@@ -7,12 +7,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.controlsfx.control.action.Action;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class HomeController {
+    @FXML
+    VBox addRecordBox;
+
     @FXML
     public void switchToHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("scenes/Home.fxml")));
@@ -38,5 +43,15 @@ public class HomeController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void closeAddRecord(ActionEvent  event){
+        addRecordBox.setVisible(false);
+    }
+
+    @FXML
+    public void showAddRecord(ActionEvent event){
+        addRecordBox.setVisible(true);
     }
 }
