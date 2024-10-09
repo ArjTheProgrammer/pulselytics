@@ -6,6 +6,7 @@ module application.pulselytics {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
+    requires jdk.compiler;
 
     opens application.pulselytics to javafx.fxml;
     exports application.pulselytics;
