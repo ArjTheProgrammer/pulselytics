@@ -2,6 +2,7 @@ package application.pulselytics.classes;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.HashMap;
 
 public class User {
@@ -10,6 +11,7 @@ public class User {
     private String pass;
     private String gender;
     private LocalDate birthday;
+    private Period age;
     private HashMap<LocalDateTime, BloodPressureLog> bloodPressureLogs;
 
     public User(String name, String username, String pass, String gender, LocalDate birthday) {
@@ -18,6 +20,7 @@ public class User {
         this.pass = pass;
         this.gender = gender;
         this.birthday = birthday;
+        this.age = Period.between(birthday, LocalDate.now());
         this.bloodPressureLogs = new HashMap<>();
     }
 
@@ -39,6 +42,10 @@ public class User {
 
     public LocalDate getBirthday() {
         return birthday;
+    }
+
+    public int getAge(){
+        return age.getYears();
     }
 
     public void setName(String name) {
