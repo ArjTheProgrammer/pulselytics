@@ -1,6 +1,9 @@
 package application.pulselytics.classes;
 
 
+import application.pulselytics.HelloApplication;
+import javafx.application.Application;
+
 import java.time.LocalDate;
 import java.util.HashMap;
 
@@ -24,5 +27,7 @@ public class Main {
         User admin = new User("Rj", "ArjTheProgrammer", "rjpogi123", "Male", birthday);
 
         Main.addUser(admin);
+
+        Application.launch(HelloApplication.class, args);
     }
 }
