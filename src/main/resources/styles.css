@@ -1,0 +1,44 @@
+
+    /*-fx-primary-color-50: #e1f5e8;*/
+    /*-fx-primary-color-100: #c3ebd1;*/
+    /*-fx-primary-color-200: #a5e0ba;*/
+    /*-fx-primary-color-300: #87d6a3;*/
+    /*-fx-primary-color-400: #69cc8c;*/
+    /*-fx-primary-color-500: #4bc275;*/
+    /*-fx-primary-color-600: #3c9e5f;*/
+    /*-fx-primary-color-700: #2d7a49;*/
+    /*-fx-primary-color-800: #1e5633;*/
+    /*-fx-primary-color-900: #0f311d;*/
+
+    /*-fx-neutral-color: #000000; !* Black *!*/
+    /*-fx-neutral-color-700: #404040;*/
+    /*-fx-neutral-color-600: #808080;*/
+    /*-fx-neutral-color-500: #c0c0c0;*/
+    /*-fx-neutral-color-400: #e0e0e0;*/
+    /*-fx-neutral-color-300: #f0f0f0;*/
+    /*-fx-neutral-color-200: #f8f8f8;*/
+    /*-fx-neutral-color-150: #fcfcfc;*/
+    /*-fx-neutral-color-100: #ffffff;*/
+    /*-fx-neutral-color-50: #ffffff;*/
+
+    .root {
+        -fx-background-color: #f8f8f8;
+    }
+
+    #signUpBox {
+    -fx-background-color: #69cc8c;
+    -fx-background-radius: 20;
+}
+    #signUpBox > Button {
+        -fx-background-color: #3c9e5f;
+        -fx-background-radius: 30;
+    }
+
+    #signUpBox > Button:hover{
+        -fx-background-color: #2d7a49;
+        -fx-text-fill: #c0c0c0;
+    }
+
+    #signUpBox > VBox > Label {
+        -fx-font-weight: 700;
+    }
