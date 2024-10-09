@@ -9,12 +9,11 @@ public class BloodPressureLog {
     private String type;
     private String note;
 
-    public BloodPressureLog(LocalDateTime dateStamp, int systolic, int diastolic, String type, String note) {
+    public BloodPressureLog(LocalDateTime dateStamp, int systolic, int diastolic, String type) {
         this.dateStamp = dateStamp;
         this.systolic = systolic;
         this.diastolic = diastolic;
         this.type = type;
-        this.note = note;
     }
 
     public LocalDateTime getDateStamp() {
@@ -33,10 +32,6 @@ public class BloodPressureLog {
         return type;
     }
 
-    public String getNote() {
-        return note;
-    }
-
     public void setDateStamp(LocalDateTime dateStamp) {
         this.dateStamp = dateStamp;
     }
@@ -51,9 +46,5 @@ public class BloodPressureLog {
 
     public void setType(String type){
         this.type = type;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
     }
 }
