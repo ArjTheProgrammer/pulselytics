@@ -29,14 +29,14 @@
     -fx-background-color: #69cc8c;
     -fx-background-radius: 20;
 }
-    .signUpInBox > Button {
+    .signUpInBox > Button, .add-record {
         -fx-background-color: #3c9e5f;
         -fx-background-radius: 30;
     }
 
-    .signUpInBox > Button:hover{
+    .signUpInBox > Button:hover, .add-record:hover{
         -fx-background-color: #2d7a49;
-        -fx-text-fill: #c0c0c0;
+        -fx-text-fill: #fcfcfc;
     }
 
     .signUpInBox > VBox > Label {
@@ -51,7 +51,7 @@
         -fx-background-color: #69cc8c;
     }
 
-    .nav > HBox > Button:focused, .nav > HBox > MenuButton:focused{
+    .nav > HBox > Button:focused {
         -fx-background-color: #2d7a49;
         -fx-text-fill: #fcfcfc;
     }

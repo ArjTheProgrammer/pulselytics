@@ -7,7 +7,7 @@ import javafx.application.Application;
 import java.time.LocalDate;
 import java.util.HashMap;
 
-public class Main {
+public class  Main {
     private static HashMap<String, User> userStorage = new HashMap<>();
 
     public static HashMap<String, User> getUserStorage() {
