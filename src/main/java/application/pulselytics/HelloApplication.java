@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("scenes/SignUp.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
+        stage.setResizable(false);
         stage.setTitle("Pulselytics");
         stage.setScene(scene);
         stage.show();
