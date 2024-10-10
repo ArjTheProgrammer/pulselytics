@@ -55,3 +55,12 @@
         -fx-background-color: #2d7a49;
         -fx-text-fill: #fcfcfc;
     }
+
+    .nav > HBox > .menu-button .menu-item {
+        -fx-pref-width: 130;
+        -fx-font-family: "Arial Rounded MT Bold";
+    }
+
+    .nav > HBox > .menu-button .menu-item:hover {
+        -fx-background-color: #69cc8c;
+    }
