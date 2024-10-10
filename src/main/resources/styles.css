@@ -53,4 +53,5 @@
 
     .nav > HBox > Button:focused, .nav > HBox > MenuButton:focused{
         -fx-background-color: #2d7a49;
+        -fx-text-fill: #fcfcfc;
     }
