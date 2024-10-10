@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.SignInController">
     <children>
-        <VBox alignment="TOP_CENTER" layoutX="491.0" layoutY="87.0" prefHeight="291.0" prefWidth="351.0">
+        <VBox alignment="TOP_CENTER" layoutX="491.0" layoutY="87.0" prefHeight="291.0" prefWidth="351.0" styleClass="signUpInBox" stylesheets="@../../../styles.css">
             <children>
                 <VBox prefHeight="28.0" prefWidth="351.0">
                     <children>
@@ -21,6 +21,9 @@
                             <padding>
                                 <Insets bottom="5.0" />
                             </padding>
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
                         </Label>
                         <TextField />
                     </children>
@@ -41,7 +44,10 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                 </VBox>
-                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="194.0" text="Sign In" />
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="194.0" text="Sign In">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font></Button>
                 <HBox alignment="CENTER" prefHeight="20.0" prefWidth="351.0">
                     <children>
                         <Separator prefWidth="200.0" />
@@ -52,17 +58,23 @@
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin>
                 </HBox>
-                <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="45.0" prefWidth="194.0" text="Sign Up" />
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#switchToSignUp" prefHeight="45.0" prefWidth="194.0" text="Sign Up">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font></Button>
             </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
         </VBox>
         <Label layoutX="45.0" layoutY="99.0" prefHeight="69.0" prefWidth="294.0" text="Pulselytics">
             <font>
-                <Font name="System Bold" size="50.0" />
+                <Font name="Arial Rounded MT Bold" size="50.0" />
             </font>
         </Label>
-        <Label alignment="TOP_LEFT" layoutX="53.0" layoutY="173.0" prefHeight="116.0" prefWidth="359.0" text="A desktop application blood pressure log and analytics using javafx" wrapText="true">
+        <Label alignment="TOP_LEFT" layoutX="53.0" layoutY="173.0" prefHeight="116.0" prefWidth="359.0" text="A desktop blood pressure log and analytics application using javafx" wrapText="true">
             <font>
-                <Font size="20.0" />
+                <Font name="Arial" size="20.0" />
             </font>
         </Label>
     </children>

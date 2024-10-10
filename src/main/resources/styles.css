@@ -25,20 +25,20 @@
         -fx-background-color: #f8f8f8;
     }
 
-    #signUpBox {
+    .signUpInBox {
     -fx-background-color: #69cc8c;
     -fx-background-radius: 20;
 }
-    #signUpBox > Button {
+    .signUpInBox > Button {
         -fx-background-color: #3c9e5f;
         -fx-background-radius: 30;
     }
 
-    #signUpBox > Button:hover{
+    .signUpInBox > Button:hover{
         -fx-background-color: #2d7a49;
         -fx-text-fill: #c0c0c0;
     }
 
-    #signUpBox > VBox > Label {
+    .signUpInBox > VBox > Label {
         -fx-font-weight: 700;
     }
