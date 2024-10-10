@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.AnalyticsController">
     <children>
-        <HBox prefHeight="0.0" prefWidth="900.0">
+        <HBox prefHeight="0.0" prefWidth="900.0" styleClass="nav" stylesheets="@../../../styles.css">
             <children>
                 <Label prefHeight="94.0" prefWidth="431.0" text="Pulselytics">
                     <padding>
@@ -23,7 +23,7 @@
                 </Label>
                 <HBox prefHeight="94.0" prefWidth="600.0">
                     <children>
-                        <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="100.0" prefWidth="134.0" text="Home">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#switchToHome" prefHeight="100.0" prefWidth="134.0" text="Home">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -33,12 +33,12 @@
                                 <Font name="System Bold" size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToHistory" prefHeight="100.0" prefWidth="133.6" text="History">
+                        <Button focusTraversable="false" mnemonicParsing="false" onAction="#switchToHistory" prefHeight="100.0" prefWidth="133.6" text="History">
                             <font>
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <MenuButton alignment="CENTER" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
+                        <MenuButton alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="Edit User" />
                                 <MenuItem mnemonicParsing="false" text="Log Out" />

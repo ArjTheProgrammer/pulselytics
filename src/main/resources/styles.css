@@ -42,3 +42,15 @@
     .signUpInBox > VBox > Label {
         -fx-font-weight: 700;
     }
+
+    .nav {
+        -fx-background-color: #69cc8c;
+    }
+
+    .nav > HBox > Button, .nav > HBox > MenuButton {
+        -fx-background-color: #69cc8c;
+    }
+
+    .nav > HBox > Button:focused, .nav > HBox > MenuButton:focused{
+        -fx-background-color: #2d7a49;
+    }
