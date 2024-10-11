@@ -7,7 +7,6 @@ public class BloodPressureLog {
     private int systolic;
     private int diastolic;
     private String type;
-    private String note;
 
     public BloodPressureLog(LocalDateTime dateStamp, int systolic, int diastolic, String type) {
         this.dateStamp = dateStamp;
