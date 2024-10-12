@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 public class  Main {
     private static HashMap<String, User> userStorage = new HashMap<>();
+    private static User currentUser;
 
     public static HashMap<String, User> getUserStorage() {
         return userStorage;
@@ -20,6 +21,14 @@ public class  Main {
 
     public static void addUser(User user){
         userStorage.put(user.getUsername(), user);
+    }
+
+    public static User getCurrentUser(){
+        return currentUser;
+    }
+
+    public static void setCurrentUser(String username){
+        currentUser = getUser(username);
     }
 
     public static void main (String[] args){
