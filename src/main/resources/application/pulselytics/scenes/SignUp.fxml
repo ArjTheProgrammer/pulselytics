@@ -74,7 +74,7 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="45.0" prefWidth="194.0" text="Sign Up">
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#setSignUpUser" prefHeight="45.0" prefWidth="194.0" text="Sign Up">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font></Button>

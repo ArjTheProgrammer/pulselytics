@@ -6,6 +6,8 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import application.pulselytics.HelloApplication;
+import application.pulselytics.classes.Main;
+import application.pulselytics.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,5 +49,11 @@ public class SignUpController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void setSignUpUser(ActionEvent event) throws IOException {
+        User user = new User(signUpName.getText(), signUpUsername.getText(), signUpPassword.getText(), signUpGender.getValue(), signUpBirthday.getValue());
+        Main.addUser(user);
+        switchToSignIn(event);
     }
 }
