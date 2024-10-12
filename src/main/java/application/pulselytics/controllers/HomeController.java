@@ -4,6 +4,7 @@ import application.pulselytics.HelloApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,10 +13,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
-public class HomeController {
+public class HomeController implements Initializable {
     @FXML
     private VBox addRecordBox;
 
@@ -53,17 +56,23 @@ public class HomeController {
     private TextField inputDiastolic;
 
     @FXML
-    private Spinner<?> inputHour;
+    private Spinner<Integer> inputHour;
 
     @FXML
-    private Spinner<?> inputMinute;
+    private Spinner<Integer> inputMinute;
 
     @FXML
     private TextField inputSystolic;
 
-    @FXML
-    private Object[] inputArray = {inputSystolic, inputDiastolic, inputDate, inputHour, inputMinute};
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        //initialize the spinner
+        SpinnerValueFactory<Integer> hourFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 23);
+        inputHour.setValueFactory(hourFactory);
 
+        SpinnerValueFactory<Integer> minFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59);
+        inputMinute.setValueFactory(minFactory);
+    }
 
     @FXML
     public void switchToHome(ActionEvent event) throws IOException {
@@ -108,6 +117,8 @@ public class HomeController {
     private void clearInput(){
         inputSystolic.setText("");
         inputDiastolic.setText("");
-        inputDate.setValue(LocalDate.now());
+        inputDate.setValue(null);
+        inputHour.getValueFactory().setValue(0);
+        inputMinute.getValueFactory().setValue(0);
     }
 }

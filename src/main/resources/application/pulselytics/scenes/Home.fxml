@@ -244,8 +244,8 @@
                   <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="340.0" spacing="20.0">
                      <children>
                         <DatePicker fx:id="inputDate" prefHeight="26.0" prefWidth="194.0" promptText="Date" />
-                        <Spinner fx:id="inputHour" />
-                        <Spinner fx:id="inputMinute" />
+                        <Spinner fx:id="inputHour" editable="true" />
+                        <Spinner fx:id="inputMinute" editable="true" />
                      </children>
                      <padding>
                         <Insets top="10.0" />
@@ -261,12 +261,12 @@
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefWidth="108.0" text="Hour">
+                        <Label alignment="CENTER" prefWidth="108.0" text="Hour (military)">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER" prefWidth="108.0" text="Minute">
+                        <Label alignment="CENTER" prefWidth="108.0" text="Minute (military)">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
