@@ -30,8 +30,6 @@ public class Tools {
     }
 
     public static void checkAndDisplayType(Label label, String type) {
-        System.out.println("Changed");
-
         switch (type) {
             case "Hypotension": {
                 label.setStyle("-fx-background-color: #007FFF; -fx-text-fill: white;");
