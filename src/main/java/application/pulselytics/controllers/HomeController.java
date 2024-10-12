@@ -96,7 +96,21 @@ public class HomeController implements Initializable {
         piGender.setText(currentUser.getGender());
 
         //event listener for the systolic and diastolic input
-//        inputSystolic.textProperty().addListener((observable, oldValue, newValue) -> );
+        inputSystolic.valueProperty().addListener((observable) -> {
+            if (inputSystolic.getValue() != null && inputDiastolic.getValue() != null) {
+                Tools.checkAndDisplayType(inputTypeLabel, Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
+            } else {
+                System.out.println("null");
+            }
+        });
+
+        inputDiastolic.valueProperty().addListener((observable) -> {
+            if (inputSystolic.getValue() != null && inputDiastolic.getValue() != null) {
+                Tools.checkAndDisplayType(inputTypeLabel, Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
+            } else {
+                System.out.println("null");
+            }
+        });
     }
 
     @FXML
