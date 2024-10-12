@@ -51,7 +51,9 @@ public class SignInController {
             if (Objects.equals(storedUsername, signInUsername.getText())){
                 User user = Main.getUser(storedUsername);
                 if (Objects.equals(user.getPass(), signInPassword.getText())){
+                    Main.setCurrentUser(storedUsername);
                     switchToHome(event);
+                    break;
                 }
                 else{
                     alert("Wrong password");

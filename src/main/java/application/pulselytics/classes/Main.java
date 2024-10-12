@@ -33,9 +33,11 @@ public class  Main {
 
     public static void main (String[] args){
         LocalDate birthday = LocalDate.parse("2005-03-27");
-        User admin = new User("Rj", "ArjTheProgrammer", "rjpogi123", "Male", birthday);
+        User admin = new User("Jose Neil Silagan Jr.", "ArjTheProgrammer", "rjpogi123", "Male", birthday);
 
         Main.addUser(admin);
+
+//        Main.setCurrentUser(admin.getUsername());
 
         Application.launch(HelloApplication.class, args);
     }

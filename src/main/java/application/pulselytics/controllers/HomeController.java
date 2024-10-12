@@ -1,6 +1,8 @@
 package application.pulselytics.controllers;
 
 import application.pulselytics.HelloApplication;
+import application.pulselytics.classes.Main;
+import application.pulselytics.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -64,6 +66,8 @@ public class HomeController implements Initializable {
     @FXML
     private TextField inputSystolic;
 
+    private User currentUser = Main.getCurrentUser();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //initialize the spinner
@@ -72,6 +76,12 @@ public class HomeController implements Initializable {
 
         SpinnerValueFactory<Integer> minFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59);
         inputMinute.setValueFactory(minFactory);
+
+        piName.setText(currentUser.getName());
+        piUsername.setText(currentUser.getUsername());
+        piBirthday.setText(Objects.toString(currentUser.getBirthday()));
+        piAge.setText(Objects.toString(currentUser.getAge()));
+        piGender.setText(currentUser.getGender());
     }
 
     @FXML

@@ -63,7 +63,7 @@
             <Font name="Arial Black" size="20.0" />
          </font>
       </Label>
-      <VBox layoutX="29.0" layoutY="142.0" prefHeight="321.0" prefWidth="318.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20;" AnchorPane.leftAnchor="29.0">
+      <VBox layoutX="29.0" layoutY="142.0" prefHeight="322.0" prefWidth="391.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20;" AnchorPane.leftAnchor="29.0">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="318.0" spacing="10.0">
                <children>
@@ -72,7 +72,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="piName" text="Null">
+                  <Label fx:id="piName" text="Null" wrapText="true">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="piUsername" text="Null">
+                  <Label fx:id="piUsername" text="Null" wrapText="true">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="piBirthday" text="Null">
+                  <Label fx:id="piBirthday" text="Null" wrapText="true">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -114,7 +114,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="piAge" text="Null">
+                  <Label fx:id="piAge" text="Null" wrapText="true">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -128,7 +128,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="piGender" text="Null">
+                  <Label fx:id="piGender" text="Null" wrapText="true">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -140,13 +140,13 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Label layoutX="406.0" layoutY="111.0" text="Average Blood Pressure">
+      <Label alignment="TOP_LEFT" layoutX="466.0" layoutY="109.0" prefHeight="31.0" prefWidth="250.0" text="Average Blood Pressure" wrapText="true">
          <font>
-            <Font name="Arial Black" size="20.0" />
+            <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="702.0" layoutY="113.0" prefWidth="150.0" />
-      <VBox layoutX="395.0" layoutY="163.0" prefHeight="227.0" prefWidth="470.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20;">
+      <ChoiceBox layoutX="736.0" layoutY="109.0" prefHeight="26.0" prefWidth="134.0" />
+      <VBox layoutX="459.0" layoutY="143.0" prefHeight="258.0" prefWidth="408.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20;">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
@@ -299,7 +299,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Button fx:id="addRecordButton" focusTraversable="false" layoutX="662.0" layoutY="404.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" styleClass="add-record" stylesheets="@../../../styles.css" text="+ Add Record">
+      <Button fx:id="addRecordButton" focusTraversable="false" layoutX="697.0" layoutY="426.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" styleClass="add-record" stylesheets="@../../../styles.css" text="+ Add Record">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
