@@ -8,7 +8,6 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -176,16 +175,19 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label text="Type:">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets left="50.0" right="50.0" />
+                     </HBox.margin>
                   </Label>
-                  <Label fx:id="aveType" text="Normal">
+                  <Label fx:id="aveType" alignment="CENTER" prefHeight="50.0" prefWidth="200.0" text="none">
                      <font>
-                        <Font name="Arial Rounded MT Bold" size="20.0" />
+                        <Font name="Arial Rounded MT Bold" size="15.0" />
                      </font>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -195,7 +197,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;" visible="false">
+      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="340.0">
                <children>
@@ -213,10 +215,7 @@
                <children>
                   <VBox prefHeight="79.0" prefWidth="171.0">
                      <children>
-                        <TextField fx:id="inputSystolic" alignment="CENTER" prefHeight="42.0" prefWidth="170.0" promptText="Systolic">
-                           <font>
-                              <Font name="Arial Black" size="12.0" />
-                           </font></TextField>
+                        <Spinner prefHeight="42.0" prefWidth="170.0" />
                         <Label alignment="CENTER" prefHeight="39.0" prefWidth="174.0" text="Systolic">
                            <font>
                               <Font name="System Bold" size="16.0" />
@@ -226,10 +225,7 @@
                   </VBox>
                   <VBox prefHeight="79.0" prefWidth="171.0">
                      <children>
-                        <TextField fx:id="inputDiastolic" alignment="CENTER" prefHeight="42.0" prefWidth="170.0" promptText="Diastolic">
-                           <font>
-                              <Font name="Arial Black" size="12.0" />
-                           </font></TextField>
+                        <Spinner prefHeight="42.0" prefWidth="170.0" />
                         <Label alignment="CENTER" prefHeight="39.0" prefWidth="174.0" text="Diastolic">
                            <font>
                               <Font name="System Bold" size="16.0" />
@@ -274,8 +270,25 @@
                      </children>
                   </HBox>
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </VBox>
-            <ImageView fitHeight="180.0" fitWidth="364.0" pickOnBounds="true" preserveRatio="true">
+            <HBox alignment="CENTER" prefHeight="36.0" prefWidth="408.0" spacing="20.0">
+               <children>
+                  <Label text="Type:">
+                     <font>
+                        <Font name="Arial Black" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="inputTypeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: black;" text="none">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ImageView fitHeight="156.0" fitWidth="313.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Image/BloodPressureType.png" />
                </image>

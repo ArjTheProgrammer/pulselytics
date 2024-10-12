@@ -2,6 +2,7 @@ package application.pulselytics.controllers;
 
 import application.pulselytics.HelloApplication;
 import application.pulselytics.classes.Main;
+import application.pulselytics.classes.Tools;
 import application.pulselytics.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,7 +56,7 @@ public class HomeController implements Initializable {
     private DatePicker inputDate;
 
     @FXML
-    private TextField inputDiastolic;
+    private Spinner<Integer> inputDiastolic;
 
     @FXML
     private Spinner<Integer> inputHour;
@@ -64,7 +65,10 @@ public class HomeController implements Initializable {
     private Spinner<Integer> inputMinute;
 
     @FXML
-    private TextField inputSystolic;
+    private Spinner<Integer> inputSystolic;
+
+    @FXML
+    private Label inputTypeLabel;
 
     private User currentUser = Main.getCurrentUser();
 
@@ -77,11 +81,22 @@ public class HomeController implements Initializable {
         SpinnerValueFactory<Integer> minFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 59);
         inputMinute.setValueFactory(minFactory);
 
+        //initialize the systolic and diastolic input
+        SpinnerValueFactory<Integer> systolicFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 300);
+        inputSystolic.setValueFactory(systolicFactory);
+
+        SpinnerValueFactory<Integer> diastolicFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 200);
+        inputDiastolic.setValueFactory(diastolicFactory);
+
+        //personal information data
         piName.setText(currentUser.getName());
         piUsername.setText(currentUser.getUsername());
         piBirthday.setText(Objects.toString(currentUser.getBirthday()));
         piAge.setText(Objects.toString(currentUser.getAge()));
         piGender.setText(currentUser.getGender());
+
+        //event listener for the systolic and diastolic input
+//        inputSystolic.textProperty().addListener((observable, oldValue, newValue) -> );
     }
 
     @FXML
@@ -125,8 +140,8 @@ public class HomeController implements Initializable {
     }
 
     private void clearInput(){
-        inputSystolic.setText("");
-        inputDiastolic.setText("");
+        inputSystolic.getValueFactory().setValue(0);
+        inputDiastolic.getValueFactory().setValue(0);
         inputDate.setValue(null);
         inputHour.getValueFactory().setValue(0);
         inputMinute.getValueFactory().setValue(0);
