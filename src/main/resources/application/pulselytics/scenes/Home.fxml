@@ -197,7 +197,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;" visible="false">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="340.0">
                <children>
@@ -298,7 +298,7 @@
             </ImageView>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="57.0" prefWidth="340.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #2d7a49; -fx-background-radius: 20;" text="Submit">
+                  <Button mnemonicParsing="false" onAction="#setAddRecord" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #2d7a49; -fx-background-radius: 20;" text="Submit">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>

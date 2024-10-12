@@ -1,6 +1,7 @@
 package application.pulselytics.controllers;
 
 import application.pulselytics.HelloApplication;
+import application.pulselytics.classes.BloodPressureLog;
 import application.pulselytics.classes.Main;
 import application.pulselytics.classes.Tools;
 import application.pulselytics.classes.User;
@@ -18,6 +19,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -95,6 +98,9 @@ public class HomeController implements Initializable {
         piAge.setText(Objects.toString(currentUser.getAge()));
         piGender.setText(currentUser.getGender());
 
+        //initialize the value of the date input
+        inputDate.setValue(LocalDate.now());
+
         //event listener for the systolic and diastolic input
         inputSystolic.valueProperty().addListener((observable) -> {
             if (inputSystolic.getValue() != null && inputDiastolic.getValue() != null) {
@@ -156,8 +162,22 @@ public class HomeController implements Initializable {
     private void clearInput(){
         inputSystolic.getValueFactory().setValue(0);
         inputDiastolic.getValueFactory().setValue(0);
-        inputDate.setValue(null);
+        inputDate.setValue(LocalDate.now());
         inputHour.getValueFactory().setValue(0);
         inputMinute.getValueFactory().setValue(0);
+    }
+
+    public void setAddRecord() throws IOException {
+        LocalDateTime localDateTime = LocalDateTime.of(
+                inputDate.getValue().getYear(),
+                inputDate.getValue().getMonthValue(),
+                inputDate.getValue().getDayOfMonth(),
+                inputHour.getValue(),
+                inputMinute.getValue()
+        );
+
+        BloodPressureLog log = new BloodPressureLog(localDateTime, inputSystolic.getValue(), inputDiastolic.getValue(), Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
+        currentUser.addBloodPressureLog(log);
+        closeAddRecord();
     }
 }
