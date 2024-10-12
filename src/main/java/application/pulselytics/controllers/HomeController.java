@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -16,10 +17,34 @@ import java.util.Objects;
 
 public class HomeController {
     @FXML
-    VBox addRecordBox;
+    private VBox addRecordBox;
 
     @FXML
-    Button addRecordButton;
+    private Button addRecordButton;
+
+    @FXML
+    private Label aveDiastolic;
+
+    @FXML
+    private Label aveSystolic;
+
+    @FXML
+    private Label aveType;
+
+    @FXML
+    private Label piAge;
+
+    @FXML
+    private Label piBirthday;
+
+    @FXML
+    private Label piGender;
+
+    @FXML
+    private Label piName;
+
+    @FXML
+    private Label piUsername;
 
     @FXML
     public void switchToHome(ActionEvent event) throws IOException {
