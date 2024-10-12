@@ -7,9 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.controlsfx.control.action.Action;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -17,6 +17,9 @@ import java.util.Objects;
 public class HomeController {
     @FXML
     VBox addRecordBox;
+
+    @FXML
+    Button addRecordButton;
 
     @FXML
     public void switchToHome(ActionEvent event) throws IOException {
@@ -46,12 +49,14 @@ public class HomeController {
     }
 
     @FXML
-    public void closeAddRecord(ActionEvent  event){
+    public void closeAddRecord(){
         addRecordBox.setVisible(false);
+        addRecordButton.setVisible(true);
     }
 
     @FXML
-    public void showAddRecord(ActionEvent event){
+    public void showAddRecord(){
         addRecordBox.setVisible(true);
+        addRecordButton.setVisible(false);
     }
 }

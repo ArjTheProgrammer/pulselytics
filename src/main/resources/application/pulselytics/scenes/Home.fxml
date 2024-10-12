@@ -72,7 +72,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Null">
+                  <Label fx:id="piName" text="Null">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -86,7 +86,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Null">
+                  <Label fx:id="piUsername" text="Null">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -100,7 +100,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Null">
+                  <Label fx:id="piBirthday" text="Null">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -114,7 +114,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Null">
+                  <Label fx:id="piAge" text="Null">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -128,7 +128,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Null">
+                  <Label fx:id="piGender" text="Null">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -164,12 +164,12 @@
             </HBox>
             <HBox prefHeight="186.0" prefWidth="470.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="189.0" prefWidth="235.0" text="120">
+                  <Label fx:id="aveSystolic" alignment="CENTER" prefHeight="189.0" prefWidth="235.0" text="120">
                      <font>
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="183.0" prefWidth="235.0" text="80">
+                  <Label fx:id="aveDiastolic" alignment="CENTER" prefHeight="183.0" prefWidth="235.0" text="80">
                      <font>
                         <Font size="50.0" />
                      </font>
@@ -183,7 +183,7 @@
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label text="Normal">
+                  <Label fx:id="aveType" text="Normal">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="20.0" />
                      </font>
@@ -195,7 +195,7 @@
             </HBox>
          </children>
       </VBox>
-      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;" visible="false">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="340.0">
                <children>
@@ -269,33 +269,13 @@
                   </HBox>
                </children>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="340.0" spacing="20.0">
-               <children>
-                  <Label text="Type:">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="17.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="120.0" text="Normal">
-                     <padding>
-                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-                     </padding>
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="17.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </HBox>
             <ImageView fitHeight="180.0" fitWidth="364.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Image/BloodPressureType.png" />
                </image>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </ImageView>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="57.0" prefWidth="340.0">
                <children>
@@ -313,7 +293,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Button focusTraversable="false" layoutX="662.0" layoutY="404.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" styleClass="add-record" stylesheets="@../../../styles.css" text="+ Add Record">
+      <Button fx:id="addRecordButton" focusTraversable="false" layoutX="662.0" layoutY="404.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" styleClass="add-record" stylesheets="@../../../styles.css" text="+ Add Record">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
