@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -30,6 +29,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button addRecordButton;
+
+    @FXML
+    private ChoiceBox<String> aveChoice;
 
     @FXML
     private Label aveDiastolic;
@@ -73,6 +75,8 @@ public class HomeController implements Initializable {
     @FXML
     private Label inputTypeLabel;
 
+    private String[] period = {"Day", "Week", "Month", "Year"};
+
     private User currentUser = Main.getCurrentUser();
 
     @Override
@@ -90,6 +94,10 @@ public class HomeController implements Initializable {
 
         SpinnerValueFactory<Integer> diastolicFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 200);
         inputDiastolic.setValueFactory(diastolicFactory);
+
+        //Initialize the average choice box
+        aveChoice.getItems().addAll(period);
+        aveChoice.setValue(period[0]);
 
         //personal information data
         piName.setText(currentUser.getName());
@@ -167,7 +175,7 @@ public class HomeController implements Initializable {
         inputMinute.getValueFactory().setValue(0);
     }
 
-    public void setAddRecord() throws IOException {
+    public void setAddRecord() {
         LocalDateTime localDateTime = LocalDateTime.of(
                 inputDate.getValue().getYear(),
                 inputDate.getValue().getMonthValue(),

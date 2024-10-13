@@ -144,31 +144,31 @@
             <Font name="Arial Black" size="18.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="736.0" layoutY="109.0" prefHeight="26.0" prefWidth="134.0" />
+      <ChoiceBox fx:id="aveChoice" layoutX="736.0" layoutY="109.0" prefHeight="26.0" prefWidth="134.0" />
       <VBox layoutX="459.0" layoutY="143.0" prefHeight="258.0" prefWidth="408.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 20;">
          <children>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label alignment="CENTER" prefHeight="103.0" prefWidth="235.0" text="Systolic">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Black" size="20.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" prefHeight="146.0" prefWidth="235.0" text="Diastolic">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial Black" size="20.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
             <HBox prefHeight="186.0" prefWidth="470.0">
                <children>
-                  <Label fx:id="aveSystolic" alignment="CENTER" prefHeight="189.0" prefWidth="235.0" text="120">
+                  <Label fx:id="aveSystolic" alignment="CENTER" prefHeight="189.0" prefWidth="235.0" text="0">
                      <font>
                         <Font size="50.0" />
                      </font>
                   </Label>
-                  <Label fx:id="aveDiastolic" alignment="CENTER" prefHeight="183.0" prefWidth="235.0" text="80">
+                  <Label fx:id="aveDiastolic" alignment="CENTER" prefHeight="183.0" prefWidth="235.0" text="0">
                      <font>
                         <Font size="50.0" />
                      </font>
