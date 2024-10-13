@@ -76,9 +76,9 @@ public class HomeController implements Initializable {
     @FXML
     private Label inputTypeLabel;
 
-    private String[] period = {"Day", "Week", "Month", "Year"};
+    private final String[] period = {"Day", "Week", "Month", "Year"};
 
-    private User currentUser = Main.getCurrentUser();
+    private final User currentUser = Main.getCurrentUser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -176,9 +176,23 @@ public class HomeController implements Initializable {
         inputDate.setValue(LocalDate.now());
         inputHour.getValueFactory().setValue(0);
         inputMinute.getValueFactory().setValue(0);
+        inputTypeLabel.setStyle("-fx-background-color: darkgrey; -fx-text-fill: black;");
+        inputTypeLabel.setText("none");
     }
 
     public void setAddRecord() {
+        if ((!inputSystolic.getValue().equals(0) && !inputDiastolic.getValue().equals(0))
+            && (inputSystolic.getValue() > inputDiastolic.getValue())){
+            BloodPressureLog log = getLog();
+            currentUser.addBloodPressureLog(log);
+            closeAddRecord(); 
+        }
+        else {
+            Tools.alert("Invalid Systolic and Diastolic");
+        }
+    }
+
+    private BloodPressureLog getLog() {
         LocalDateTime localDateTime = LocalDateTime.of(
                 inputDate.getValue().getYear(),
                 inputDate.getValue().getMonthValue(),
@@ -187,9 +201,7 @@ public class HomeController implements Initializable {
                 inputMinute.getValue()
         );
 
-        BloodPressureLog log = new BloodPressureLog(localDateTime, inputSystolic.getValue(), inputDiastolic.getValue(), Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
-        currentUser.addBloodPressureLog(log);
-        closeAddRecord();
+        return new BloodPressureLog(localDateTime, inputSystolic.getValue(), inputDiastolic.getValue(), Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
     }
 
     public void computeAverage(ActionEvent event){
