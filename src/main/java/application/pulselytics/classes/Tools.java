@@ -1,5 +1,6 @@
 package application.pulselytics.classes;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
 
@@ -67,5 +68,14 @@ public class Tools {
                 break;
             }
         }
+    }
+
+    public static void alert(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Invalid");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.showAndWait();
     }
 }

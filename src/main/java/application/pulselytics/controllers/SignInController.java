@@ -6,6 +6,7 @@ import java.util.Objects;
 
 import application.pulselytics.HelloApplication;
 import application.pulselytics.classes.Main;
+import application.pulselytics.classes.Tools;
 import application.pulselytics.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,24 +57,15 @@ public class SignInController {
                     break;
                 }
                 else{
-                    alert("Wrong password");
+                    Tools.alert("Wrong password");
                     signInPassword.setText("");
                 }
             }
             else {
-                alert("Username not found");
+                Tools.alert("Username not found");
                 signInUsername.setText("");
                 signInPassword.setText("");
             }
         }
-    }
-
-    public void alert(String message){
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Invalid");
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-
-        alert.showAndWait();
     }
 }
