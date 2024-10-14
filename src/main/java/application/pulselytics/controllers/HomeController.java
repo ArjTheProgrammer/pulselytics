@@ -25,6 +25,10 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
+
+    @FXML
+    private VBox settingsBox;
+
     @FXML
     private VBox addRecordBox;
 
@@ -155,6 +159,18 @@ public class HomeController implements Initializable {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+//
+//    public void switchToSignIn(ActionEvent event) throws IOException {
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("scenes/SignIn.fxml")));
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+
+    public void showSettings(){
+        settingsBox.setVisible(!settingsBox.isVisible());
     }
 
     @FXML

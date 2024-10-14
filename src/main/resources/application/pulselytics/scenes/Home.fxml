@@ -42,7 +42,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
+                  <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showSettings" prefHeight="100.0" prefWidth="133.6" text="Settings">
                      <font>
                         <Font size="20.0" />
                      </font></Button>

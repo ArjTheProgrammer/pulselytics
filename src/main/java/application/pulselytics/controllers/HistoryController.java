@@ -7,12 +7,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Objects;
 
 public class HistoryController {
+
+    @FXML
+    private VBox settingsBox;
+
     @FXML
     public void switchToHome(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("scenes/Home.fxml")));
@@ -38,5 +43,17 @@ public class HistoryController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+//
+//    public void switchToSignIn(ActionEvent event) throws IOException {
+//        Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("scenes/SignIn.fxml")));
+//        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
+
+    public void showSettings(){
+        settingsBox.setVisible(!settingsBox.isVisible());
     }
 }

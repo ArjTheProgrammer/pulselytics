@@ -17,7 +17,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </padding>
                     <font>
-                        <Font name="System Bold" size="50.0" />
+                        <Font name="Arial Black" size="50.0" />
                     </font>
                 </Label>
                 <HBox prefHeight="94.0" prefWidth="600.0">
@@ -37,7 +37,7 @@
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <Button fx:id="settings" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
+                        <Button fx:id="settings" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#showSettings" prefHeight="100.0" prefWidth="133.6" text="Settings">
                             <font>
                                 <Font size="20.0" />
                             </font>
