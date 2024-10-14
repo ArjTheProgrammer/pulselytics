@@ -312,7 +312,7 @@
       <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
          <children>
             <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
+            <Button mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
          </children>
       </VBox>
    </children>
