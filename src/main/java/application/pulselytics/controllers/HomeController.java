@@ -22,6 +22,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
+import java.util.OptionalDouble;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
@@ -221,82 +222,69 @@ public class HomeController implements Initializable {
     }
 
     public void computeAverage(ActionEvent event){
-        //"Day", "Week", "Month", "Year"
-        if (Objects.equals(aveChoice.getValue(), "Day")){
-            int computedSystolic = 0;
-            int computedDiastolic = 0;
-            int logCount = 0;
-            for (LocalDateTime datestamp : currentUser.getBloodPressureLogs().keySet()){
-                if (datestamp.getDayOfMonth() == LocalDateTime.now().getDayOfMonth()){
-                    logCount++;
-                    computedSystolic += currentUser.getBloodPressureLogByDate(datestamp).getSystolic();
-                    computedDiastolic += currentUser.getBloodPressureLogByDate(datestamp).getDiastolic();
-                }
-            }
-            int comAveSys = computedSystolic / logCount;
-            int comAveDia = computedDiastolic / logCount;
 
-            aveSystolic.setText(String.valueOf(comAveSys));
-            aveDiastolic.setText(String.valueOf(computedDiastolic / logCount));
-            Tools.checkAndDisplayType(aveType, Tools.bpTypeIdentifier(comAveSys, comAveDia));
+        if (aveChoice.getValue().equals("Day")) {
+            OptionalDouble avgSys = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> entry.getKey().getDayOfMonth() == LocalDateTime.now().getDayOfMonth())
+                    .mapToInt(entry -> entry.getValue().getSystolic())
+                    .average();
+
+            OptionalDouble avgDia = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> entry.getKey().getDayOfMonth() == LocalDateTime.now().getDayOfMonth())
+                    .mapToInt(entry -> entry.getValue().getDiastolic())
+                    .average();
+
+            displaySysDiaAve(avgSys, avgDia);
         }
 
-        else if (Objects.equals(aveChoice.getValue(), "Week")){
-            int computedSystolic = 0;
-            int computedDiastolic = 0;
-            int logCount = 0;
-            for (LocalDateTime datestamp : currentUser.getBloodPressureLogs().keySet()){
-                LocalDate weekStart = datestamp.toLocalDate().minusDays(datestamp.getDayOfWeek().getValue() - 1);
-                if (ChronoUnit.DAYS.between(weekStart, LocalDate.now()) <= 6){
-                    logCount++;
-                    computedSystolic += currentUser.getBloodPressureLogByDate(datestamp).getSystolic();
-                    computedDiastolic += currentUser.getBloodPressureLogByDate(datestamp).getDiastolic();
-                }
-            }
-            int comAveSys = computedSystolic / logCount;
-            int comAveDia = computedDiastolic / logCount;
+        else if (aveChoice.getValue().equals("Week")){
+            OptionalDouble avgSys = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> ChronoUnit.DAYS.between(entry.getKey().toLocalDate().minusDays(entry.getKey().getDayOfWeek().getValue() - 1),  LocalDate.now()) <= 6)
+                    .mapToInt(entry -> entry.getValue().getSystolic())
+                    .average();
 
-            aveSystolic.setText(String.valueOf(comAveSys));
-            aveDiastolic.setText(String.valueOf(computedDiastolic / logCount));
-            Tools.checkAndDisplayType(aveType, Tools.bpTypeIdentifier(comAveSys, comAveDia));
+            OptionalDouble avgDia = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> ChronoUnit.DAYS.between(entry.getKey().toLocalDate().minusDays(entry.getKey().getDayOfWeek().getValue() - 1), LocalDate.now()) <= 6)
+                    .mapToInt(entry -> entry.getValue().getDiastolic())
+                    .average();
+
+            displaySysDiaAve(avgSys, avgDia);
         }
 
         else if (Objects.equals(aveChoice.getValue(), "Month")){
-            int computedSystolic = 0;
-            int computedDiastolic = 0;
-            int logCount = 0;
-            for (LocalDateTime datestamp : currentUser.getBloodPressureLogs().keySet()){
-                if (datestamp.getMonth() == LocalDate.now().getMonth()){
-                    logCount++;
-                    computedSystolic += currentUser.getBloodPressureLogByDate(datestamp).getSystolic();
-                    computedDiastolic += currentUser.getBloodPressureLogByDate(datestamp).getDiastolic();
-                }
-            }
-            int comAveSys = computedSystolic / logCount;
-            int comAveDia = computedDiastolic / logCount;
+            OptionalDouble avgSys = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> entry.getKey().getMonth() == LocalDate.now().getMonth())
+                    .mapToInt(entry -> entry.getValue().getSystolic())
+                    .average();
 
-            aveSystolic.setText(String.valueOf(comAveSys));
-            aveDiastolic.setText(String.valueOf(computedDiastolic / logCount));
-            Tools.checkAndDisplayType(aveType, Tools.bpTypeIdentifier(comAveSys, comAveDia));
+            OptionalDouble avgDia = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> entry.getKey().getMonth() == LocalDate.now().getMonth())
+                    .mapToInt(entry -> entry.getValue().getDiastolic())
+                    .average();
+
+            displaySysDiaAve(avgSys, avgDia);
         }
 
         else if (Objects.equals(aveChoice.getValue(), "Year")){
-            int computedSystolic = 0;
-            int computedDiastolic = 0;
-            int logCount = 0;
-            for (LocalDateTime datestamp : currentUser.getBloodPressureLogs().keySet()){
-                if (datestamp.getYear() == LocalDate.now().getYear()){
-                    logCount++;
-                    computedSystolic += currentUser.getBloodPressureLogByDate(datestamp).getSystolic();
-                    computedDiastolic += currentUser.getBloodPressureLogByDate(datestamp).getDiastolic();
-                }
-            }
-            int comAveSys = computedSystolic / logCount;
-            int comAveDia = computedDiastolic / logCount;
+            OptionalDouble avgSys = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> entry.getKey().getYear() == LocalDate.now().getYear())
+                    .mapToInt(entry -> entry.getValue().getSystolic())
+                    .average();
 
-            aveSystolic.setText(String.valueOf(comAveSys));
-            aveDiastolic.setText(String.valueOf(computedDiastolic / logCount));
-            Tools.checkAndDisplayType(aveType, Tools.bpTypeIdentifier(comAveSys, comAveDia));
+            OptionalDouble avgDia = currentUser.getBloodPressureLogs().entrySet().stream()
+                    .filter(entry -> entry.getKey().getYear() == LocalDate.now().getYear())
+                    .mapToInt(entry -> entry.getValue().getDiastolic())
+                    .average();
+
+            displaySysDiaAve(avgSys, avgDia);
+        }
+    }
+
+    private void displaySysDiaAve(OptionalDouble avgSys, OptionalDouble avgDia) {
+        if (avgSys.isPresent() && avgDia.isPresent()) {
+            aveSystolic.setText(String.valueOf(Math.round(avgSys.getAsDouble())));
+            aveDiastolic.setText(String.valueOf(Math.round(avgDia.getAsDouble())));
+            Tools.checkAndDisplayType(aveType, Tools.bpTypeIdentifier((int) avgSys.getAsDouble(), (int) avgDia.getAsDouble()));
         }
     }
 }
