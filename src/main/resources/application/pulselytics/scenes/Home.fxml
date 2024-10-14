@@ -5,8 +5,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -44,15 +42,10 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <MenuButton alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Edit User" />
-                        <MenuItem mnemonicParsing="false" text="Log Out" />
-                     </items>
+                  <Button alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
                      <font>
                         <Font size="20.0" />
-                     </font>
-                  </MenuButton>
+                     </font></Button>
                </children>
             </HBox>
          </children>
@@ -316,5 +309,11 @@
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
+      <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

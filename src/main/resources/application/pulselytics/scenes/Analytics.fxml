@@ -3,10 +3,9 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.AnalyticsController">
@@ -38,18 +37,20 @@
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <MenuButton alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Edit User" />
-                                <MenuItem mnemonicParsing="false" text="Log Out" />
-                            </items>
+                        <Button fx:id="settings" alignment="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="100.0" prefWidth="133.6" text="Settings">
                             <font>
                                 <Font size="20.0" />
                             </font>
-                        </MenuButton>
+                        </Button>
                     </children>
                 </HBox>
             </children>
         </HBox>
+      <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
+            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
