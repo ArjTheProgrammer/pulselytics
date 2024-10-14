@@ -48,24 +48,25 @@ public class SignInController {
     public void validateUser(ActionEvent event) throws IOException{
         HashMap<String, User> userStorage = Main.getUserStorage();
 
-        for (String storedUsername : userStorage.keySet()){
-            if (Objects.equals(storedUsername, signInUsername.getText())){
-                User user = Main.getUser(storedUsername);
-                if (Objects.equals(user.getPass(), signInPassword.getText())){
-                    Main.setCurrentUser(storedUsername);
-                    switchToHome(event);
-                    break;
-                }
-                else{
-                    Tools.alert("Wrong password");
-                    signInPassword.setText("");
-                }
+        if (userStorage.containsKey(signInUsername.getText())){
+            User user = Main.getUser(signInUsername.getText());
+            if (user.getPass().equals(signInPassword.getText())){
+                Main.setCurrentUser(user.getUsername());
+                switchToHome(event);
             }
-            else {
-                Tools.alert("Username not found");
-                signInUsername.setText("");
+            else{
+                Tools.alert("Wrong password");
                 signInPassword.setText("");
+
+                for (String username : Main.getUserStorage().keySet()){
+                    System.out.print(username + " ");
+                }
             }
+        }
+        else {
+            Tools.alert("Username not found");
+            signInUsername.setText("");
+            signInPassword.setText("");
         }
     }
 }
