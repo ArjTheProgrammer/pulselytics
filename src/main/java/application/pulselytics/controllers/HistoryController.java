@@ -62,6 +62,9 @@ public class HistoryController implements Initializable {
         inputHistoryMonth.setValueFactory(monthFactory);
         inputHistoryMonth.getValueFactory().setValue(LocalDate.now().getMonthValue());
 
+        //set value of date
+        inputHistoryDate.setValue(LocalDate.now());
+
         yearMonthButton.setOnAction(event -> {
             System.out.println(inputHistoryDate.getValue());
             displayLogByYearMonth();
