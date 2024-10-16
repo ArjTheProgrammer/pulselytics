@@ -49,6 +49,8 @@ public class HistoryController implements Initializable {
 
     private final User currentUser = Main.getCurrentUser();
 
+    HashMap<LocalDateTime, BloodPressureLog> storage = currentUser.getBloodPressureLogs();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -62,6 +64,10 @@ public class HistoryController implements Initializable {
 
         yearMonthButton.setOnAction(event -> {
             displayLogByYearMonth();
+        });
+
+        dateButton.setOnAction(event -> {
+         displayLogByDate();
         });
     }
 
@@ -106,8 +112,6 @@ public class HistoryController implements Initializable {
     }
 
     private void displayLogByYearMonth(){
-        HashMap<LocalDateTime, BloodPressureLog> storage = currentUser.getBloodPressureLogs();
-
         boolean containsYearMonth = storage.keySet().stream()
                 .anyMatch(dateTime -> dateTime.getYear() == inputHistoryYear.getValue() && dateTime.getMonthValue() == inputHistoryMonth.getValue());
 
@@ -116,21 +120,41 @@ public class HistoryController implements Initializable {
                     .filter(entry -> entry.getKey().getYear() == inputHistoryYear.getValue() && entry.getKey().getMonthValue() == inputHistoryMonth.getValue())
                     .sorted(Map.Entry.<LocalDateTime, BloodPressureLog>comparingByKey().reversed())
                     .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-            filteredBp.forEach((key, value) -> {
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    fxmlLoader.setLocation(HelloApplication.class.getResource("scenes/LogCard.fxml"));
-                    HBox logCard = fxmlLoader.load();
-                    LogCardController logCardController = fxmlLoader.getController();
-                    logCardController.setData(currentUser, currentUser.getBloodPressureLogs().get(key), logLayout);
-                    logLayout.getChildren().add(logCard);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            displayLogs(filteredBp);
         }
         else {
             Tools.alert("Doesn't have any record");
         }
+    }
+
+    private void displayLogByDate(){
+        boolean containsDate = storage.keySet().stream()
+                .anyMatch(dateTime -> dateTime.getYear() == inputHistoryDate.getValue().getYear() && dateTime.getMonthValue() == inputHistoryDate.getValue().getMonthValue() && dateTime.getDayOfMonth() == inputHistoryDate.getValue().getDayOfMonth());
+
+        if (containsDate) {
+            HashMap<LocalDateTime, BloodPressureLog> filteredBp = storage.entrySet().stream()
+                    .filter(entry -> entry.getKey().getYear() == inputHistoryDate.getValue().getYear() && entry.getKey().getMonthValue() == inputHistoryDate.getValue().getMonthValue() && entry.getKey().getDayOfMonth() == inputHistoryDate.getValue().getDayOfMonth())
+                    .sorted(Map.Entry.<LocalDateTime, BloodPressureLog>comparingByKey().reversed())
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+            displayLogs(filteredBp);
+        }
+        else {
+            Tools.alert("Doesn't have any record");
+        }
+    }
+
+    private void displayLogs(HashMap<LocalDateTime, BloodPressureLog> filteredBp) {
+        filteredBp.forEach((key, value) -> {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(HelloApplication.class.getResource("scenes/LogCard.fxml"));
+                HBox logCard = fxmlLoader.load();
+                LogCardController logCardController = fxmlLoader.getController();
+                logCardController.setData(currentUser, currentUser.getBloodPressureLogs().get(key), logLayout);
+                logLayout.getChildren().add(logCard);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }
