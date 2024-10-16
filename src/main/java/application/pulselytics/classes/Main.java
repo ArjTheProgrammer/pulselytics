@@ -89,8 +89,6 @@ public class  Main {
         currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now().minusDays(1), 140, 95, Tools.bpTypeIdentifier(140, 95)));
         currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now().minusDays(2), 180, 110, Tools.bpTypeIdentifier(180, 110)));
         currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now().minusDays(3), 115, 75, Tools.bpTypeIdentifier(115, 75)));
-        currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now(), 90, 70, Tools.bpTypeIdentifier(120, 80)));
-        currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now(), 95, 65, Tools.bpTypeIdentifier(130, 90)));
-        currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now(), 90, 70, Tools.bpTypeIdentifier(140, 95)));
+        currentUser.addBloodPressureLog(new BloodPressureLog(LocalDateTime.now(), 90, 70, Tools.bpTypeIdentifier(90, 70)));
     }
 }
