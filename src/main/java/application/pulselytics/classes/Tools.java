@@ -22,7 +22,7 @@ public class Tools {
         {
             return "Hypertension Stage 1";
         }
-        else if ((systolic >= 140 && systolic < 180) && (diastolic >= 90 && diastolic < 120)) {
+        else if ((systolic >= 140 && systolic < 180) || (diastolic >= 90 && diastolic < 120)) {
             return "Hypertension Stage 2";
         }
         else {
