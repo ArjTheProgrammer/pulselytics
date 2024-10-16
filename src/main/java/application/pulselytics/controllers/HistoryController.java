@@ -63,6 +63,7 @@ public class HistoryController implements Initializable {
         inputHistoryMonth.getValueFactory().setValue(LocalDate.now().getMonthValue());
 
         yearMonthButton.setOnAction(event -> {
+            System.out.println(inputHistoryDate.getValue());
             displayLogByYearMonth();
         });
 
@@ -128,22 +129,27 @@ public class HistoryController implements Initializable {
     }
 
     private void displayLogByDate(){
-        boolean containsDate = storage.keySet().stream()
-                .anyMatch(dateTime -> dateTime.getYear() == inputHistoryDate.getValue().getYear() && dateTime.getMonthValue() == inputHistoryDate.getValue().getMonthValue() && dateTime.getDayOfMonth() == inputHistoryDate.getValue().getDayOfMonth());
+        if (inputHistoryDate.getValue() != null) {
+            boolean containsDate = storage.keySet().stream()
+                    .anyMatch(dateTime -> dateTime.getYear() == inputHistoryDate.getValue().getYear() && dateTime.getMonthValue() == inputHistoryDate.getValue().getMonthValue() && dateTime.getDayOfMonth() == inputHistoryDate.getValue().getDayOfMonth());
 
-        if (containsDate) {
-            HashMap<LocalDateTime, BloodPressureLog> filteredBp = storage.entrySet().stream()
-                    .filter(entry -> entry.getKey().getYear() == inputHistoryDate.getValue().getYear() && entry.getKey().getMonthValue() == inputHistoryDate.getValue().getMonthValue() && entry.getKey().getDayOfMonth() == inputHistoryDate.getValue().getDayOfMonth())
-                    .sorted(Map.Entry.<LocalDateTime, BloodPressureLog>comparingByKey().reversed())
-                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-            displayLogs(filteredBp);
-        }
-        else {
-            Tools.alert("Doesn't have any record");
+            if (containsDate && inputHistoryDate.getValue() != null) {
+                HashMap<LocalDateTime, BloodPressureLog> filteredBp = storage.entrySet().stream()
+                        .filter(entry -> entry.getKey().getYear() == inputHistoryDate.getValue().getYear() && entry.getKey().getMonthValue() == inputHistoryDate.getValue().getMonthValue() && entry.getKey().getDayOfMonth() == inputHistoryDate.getValue().getDayOfMonth())
+                        .sorted(Map.Entry.<LocalDateTime, BloodPressureLog>comparingByKey().reversed())
+                        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+                displayLogs(filteredBp);
+            } else {
+                Tools.alert("Doesn't have any record");
+            }
+        } else {
+            Tools.alert("Input a date!");
         }
     }
 
     private void displayLogs(HashMap<LocalDateTime, BloodPressureLog> filteredBp) {
+        logLayout.getChildren().clear();
+
         filteredBp.forEach((key, value) -> {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
