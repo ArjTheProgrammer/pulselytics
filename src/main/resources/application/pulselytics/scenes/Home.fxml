@@ -27,7 +27,7 @@
             </Label>
             <HBox prefHeight="94.0" prefWidth="600.0">
                <children>
-                  <Button id="homeButton" mnemonicParsing="false" onAction="#switchToHome" prefHeight="100.0" prefWidth="134.0" text="Home">
+                  <Button id="homeButton" mnemonicParsing="false" onAction="#switchToHome" prefHeight="100.0" prefWidth="134.0" styleClass="highlight" text="Home">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

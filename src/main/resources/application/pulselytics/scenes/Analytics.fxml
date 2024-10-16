@@ -27,7 +27,7 @@
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToAnalytics" prefHeight="100.0" prefWidth="133.6" text="Analytics">
+                        <Button mnemonicParsing="false" onAction="#switchToAnalytics" prefHeight="100.0" prefWidth="133.6" styleClass="highlight" text="Analytics">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>

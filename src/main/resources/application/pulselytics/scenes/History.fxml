@@ -36,7 +36,7 @@
                                 <Font size="20.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToHistory" prefHeight="100.0" prefWidth="133.6" text="History">
+                        <Button mnemonicParsing="false" onAction="#switchToHistory" prefHeight="100.0" prefWidth="133.6" styleClass="highlight" text="History">
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font>
@@ -50,12 +50,6 @@
                 </HBox>
             </children>
         </HBox>
-        <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
-                <Button mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
-            </children>
-        </VBox>
       <ScrollPane layoutX="46.0" layoutY="163.0" prefHeight="322.0" prefWidth="808.0">
          <content>
             <VBox fx:id="logLayout" alignment="TOP_CENTER" prefHeight="319.0" prefWidth="777.0" spacing="10.0" />
@@ -102,5 +96,11 @@
             </HBox>
          </children>
       </HBox>
+        <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
+                <Button mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
+            </children>
+        </VBox>
     </children>
 </AnchorPane>

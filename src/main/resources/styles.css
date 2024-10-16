@@ -51,7 +51,7 @@
         -fx-background-color: #69cc8c;
     }
 
-    .nav > HBox > Button:focused {
+    .nav > HBox > .highlight {
         -fx-background-color: #2d7a49;
         -fx-text-fill: #fcfcfc;
     }
