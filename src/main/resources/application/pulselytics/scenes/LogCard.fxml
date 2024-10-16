@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="600.0" spacing="10.0" style="-fx-background-radius: 10; -fx-background-color: #e0e0e0;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.LogCardController">
+   <children>
+      <VBox prefHeight="80.0" prefWidth="100.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" prefHeight="33.0" prefWidth="134.0" text="Datestamp:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="cardDateStamp" alignment="CENTER" prefHeight="55.0" prefWidth="138.0" text="null">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox prefHeight="80.0" prefWidth="110.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" prefHeight="33.0" prefWidth="134.0" text="Systolic:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="cardSystolic" alignment="CENTER" prefHeight="55.0" prefWidth="138.0" text="null">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox prefHeight="80.0" prefWidth="110.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" prefHeight="33.0" prefWidth="134.0" text="Diastolic:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="cardDiastolic" alignment="CENTER" prefHeight="55.0" prefWidth="138.0" text="null">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox prefHeight="80.0" prefWidth="164.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" prefHeight="29.0" prefWidth="171.0" text="Type:">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="cardType" alignment="CENTER" prefHeight="53.0" prefWidth="166.0" text="null" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="cardDelete" mnemonicParsing="false" style="-fx-background-color: #2d7a49; -fx-text-fill: white;" text="Delete">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+   </children>
+</HBox>
