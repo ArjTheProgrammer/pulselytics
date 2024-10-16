@@ -36,7 +36,7 @@ public class LogCardController {
     private Label cardType;
 
 
-    public void setData(User user,BloodPressureLog bloodPressureLog){
+    public void setData(User user,BloodPressureLog bloodPressureLog, VBox layout){
 
         cardDate.setText(bloodPressureLog.getDateStamp().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         cardTime.setText(bloodPressureLog.getDateStamp().format(DateTimeFormatter.ofPattern("HH:mm")));
@@ -44,14 +44,14 @@ public class LogCardController {
         cardDiastolic.setText(Integer.toString(bloodPressureLog.getDiastolic()));
         cardType.setText(bloodPressureLog.getType());
 
-//        cardDelete.setOnAction(event -> {
-//            handleDelete(bloodPressureLog, user, cardBloodPressure);
-//        });
+       cardDelete.setOnAction(event -> {
+           handleDelete(bloodPressureLog, user, layout, cardBloodPressure);
+       });
     }
 
-//    private void handleDelete(BloodPressureLog bloodPressureLog, User user, HBox card){
-//        user.removeBloodPressureLog(bloodPressureLog);
-//
-////        HistoryController.logLayout.getChildren().remove(card);
-//    }
+   private void handleDelete(BloodPressureLog bloodPressureLog, User user,VBox layout, HBox card){
+       user.removeBloodPressureLog(bloodPressureLog);
+
+        layout.getChildren().remove(card);
+    }
 }

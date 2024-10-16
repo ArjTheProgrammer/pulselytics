@@ -42,7 +42,7 @@ public class HistoryController implements Initializable {
                 fxmlLoader.setLocation(HelloApplication.class.getResource("scenes/LogCard.fxml"));
                 HBox logCard = fxmlLoader.load();
                 LogCardController logCardController = fxmlLoader.getController();
-                logCardController.setData(currentUser, userBloodPressureLogs.get(datestamp));
+                logCardController.setData(currentUser, userBloodPressureLogs.get(datestamp), logLayout);
                 logLayout.getChildren().add(logCard);
             }
         } catch (IOException e) {
