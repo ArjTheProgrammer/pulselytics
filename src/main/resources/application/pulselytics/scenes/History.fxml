@@ -64,14 +64,14 @@
                         <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
-                  <Spinner prefHeight="22.0" prefWidth="117.0" />
+                  <Spinner fx:id="inputHistoryYear" prefHeight="22.0" prefWidth="117.0" />
                   <Label alignment="CENTER" prefHeight="54.0" prefWidth="59.0" text="Month">
                      <font>
                         <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
-                  <Spinner prefHeight="23.0" prefWidth="105.0" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #2d7a49; -fx-text-fill: white;" text="search">
+                  <Spinner fx:id="inputHistoryMonth" prefHeight="23.0" prefWidth="105.0" />
+                  <Button fx:id="yearMonthButton" mnemonicParsing="false" style="-fx-background-color: #2d7a49; -fx-text-fill: white;" text="search">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
@@ -86,8 +86,8 @@
                         <Font name="Arial Black" size="12.0" />
                      </font>
                   </Label>
-                  <DatePicker prefHeight="24.0" prefWidth="118.0" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #2d7a49; -fx-text-fill: white;" text="search">
+                  <DatePicker fx:id="inputHistoryDate" prefHeight="24.0" prefWidth="118.0" />
+                  <Button fx:id="dateButton" mnemonicParsing="false" style="-fx-background-color: #2d7a49; -fx-text-fill: white;" text="search">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>

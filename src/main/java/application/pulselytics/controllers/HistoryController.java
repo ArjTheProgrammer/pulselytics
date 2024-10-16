@@ -3,6 +3,7 @@ package application.pulselytics.controllers;
 import application.pulselytics.HelloApplication;
 import application.pulselytics.classes.BloodPressureLog;
 import application.pulselytics.classes.Main;
+import application.pulselytics.classes.Tools;
 import application.pulselytics.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,43 +12,57 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class HistoryController implements Initializable {
+
+    @FXML
+    private Spinner<Integer> inputHistoryMonth;
+
+    @FXML
+    private Button dateButton;
+
+    @FXML
+    private DatePicker inputHistoryDate;
+
+    @FXML
+    private Spinner<Integer> inputHistoryYear;
+
+    @FXML
+    private VBox logLayout;
 
     @FXML
     private VBox settingsBox;
 
     @FXML
-    private VBox logLayout;
+    private Button yearMonthButton;
 
     private final User currentUser = Main.getCurrentUser();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        HashMap<LocalDateTime, BloodPressureLog> userBloodPressureLogs = currentUser.getBloodPressureLogs();
 
-        try {
-            for (LocalDateTime datestamp : userBloodPressureLogs.keySet()){
-                FXMLLoader  fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(HelloApplication.class.getResource("scenes/LogCard.fxml"));
-                HBox logCard = fxmlLoader.load();
-                LogCardController logCardController = fxmlLoader.getController();
-                logCardController.setData(currentUser, userBloodPressureLogs.get(datestamp), logLayout);
-                logLayout.getChildren().add(logCard);
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        SpinnerValueFactory<Integer> yearFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1900, LocalDate.now().getYear());
+        inputHistoryYear.setValueFactory(yearFactory);
+        inputHistoryYear.getValueFactory().setValue(LocalDate.now().getYear());
+
+        SpinnerValueFactory<Integer> monthFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 12);
+        inputHistoryMonth.setValueFactory(monthFactory);
+        inputHistoryMonth.getValueFactory().setValue(LocalDate.now().getMonthValue());
+
+        yearMonthButton.setOnAction(event -> {
+            displayLogByYearMonth();
+        });
     }
 
 
@@ -88,5 +103,34 @@ public class HistoryController implements Initializable {
 
     public void showSettings(){
         settingsBox.setVisible(!settingsBox.isVisible());
+    }
+
+    private void displayLogByYearMonth(){
+        HashMap<LocalDateTime, BloodPressureLog> storage = currentUser.getBloodPressureLogs();
+
+        boolean containsYearMonth = storage.keySet().stream()
+                .anyMatch(dateTime -> dateTime.getYear() == inputHistoryYear.getValue() && dateTime.getMonthValue() == inputHistoryMonth.getValue());
+
+        if (containsYearMonth) {
+            HashMap<LocalDateTime, BloodPressureLog> filteredBp = storage.entrySet().stream()
+                    .filter(entry -> entry.getKey().getYear() == inputHistoryYear.getValue() && entry.getKey().getMonthValue() == inputHistoryMonth.getValue())
+                    .sorted(Map.Entry.<LocalDateTime, BloodPressureLog>comparingByKey().reversed())
+                    .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+            filteredBp.forEach((key, value) -> {
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(HelloApplication.class.getResource("scenes/LogCard.fxml"));
+                    HBox logCard = fxmlLoader.load();
+                    LogCardController logCardController = fxmlLoader.getController();
+                    logCardController.setData(currentUser, currentUser.getBloodPressureLogs().get(key), logLayout);
+                    logLayout.getChildren().add(logCard);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+        else {
+            Tools.alert("Doesn't have any record");
+        }
     }
 }
