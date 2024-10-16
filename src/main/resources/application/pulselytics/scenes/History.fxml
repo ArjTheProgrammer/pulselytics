@@ -58,7 +58,7 @@
         </VBox>
       <ScrollPane layoutX="46.0" layoutY="163.0" prefHeight="322.0" prefWidth="808.0">
          <content>
-            <VBox prefHeight="319.0" prefWidth="803.0" />
+            <VBox fx:id="logLayout" alignment="TOP_CENTER" prefHeight="319.0" prefWidth="777.0" spacing="10.0" />
          </content>
       </ScrollPane>
       <HBox layoutX="46.0" layoutY="101.0" prefHeight="54.0" prefWidth="808.0">
