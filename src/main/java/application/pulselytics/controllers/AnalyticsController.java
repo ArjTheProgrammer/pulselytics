@@ -22,7 +22,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
-import java.util.OptionalDouble;
 import java.util.ResourceBundle;
 
 public class AnalyticsController implements Initializable {
@@ -46,30 +45,17 @@ public class AnalyticsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         analyticsChoice.getItems().addAll(period);
 
-        series.getData().add(new XYChart.Data<>("Hypotension", 15));
-        series.getData().add(new XYChart.Data<>("Normal", 10));
-        series.getData().add(new XYChart.Data<>("Elevated", 15));
-        series.getData().add(new XYChart.Data<>("Stage 1", 12));
-        series.getData().add(new XYChart.Data<>("Stage 2", 25));
-        series.getData().add(new XYChart.Data<>("Hypertensive Crisis", 12));
-
-
-        analyzeByYear();
+        series.getData().add(new XYChart.Data<>("Hypotension", 0));
+        series.getData().add(new XYChart.Data<>("Normal", 0));
+        series.getData().add(new XYChart.Data<>("Elevated", 0));
+        series.getData().add(new XYChart.Data<>("Stage 1", 0));
+        series.getData().add(new XYChart.Data<>("Stage 2", 0));
+        series.getData().add(new XYChart.Data<>("Hypertensive Crisis", 0));
 
         barChart.getData().add(series);
 
-        Node node = barChart.lookup(".data0.chart-bar");
-        node.setStyle("-fx-bar-fill: #007FFF;");
-        node = barChart.lookup(".data1.chart-bar");
-        node.setStyle("-fx-bar-fill: lightgreen;");
-        node = barChart.lookup(".data2.chart-bar");
-        node.setStyle("-fx-bar-fill: yellow;");
-        node = barChart.lookup(".data3.chart-bar");
-        node.setStyle("-fx-bar-fill: orange;");
-        node = barChart.lookup(".data4.chart-bar");
-        node.setStyle("-fx-bar-fill: red;");
-        node = barChart.lookup(".data5.chart-bar");
-        node.setStyle("-fx-bar-fill: maroon;");
+        analyticsChoice.setOnAction(this::analyzeChoice);
+
 
         barChart.setLegendVisible(false);
     }
@@ -114,22 +100,67 @@ public class AnalyticsController implements Initializable {
         settingsBox.setVisible(!settingsBox.isVisible());
     }
 
-    public void analyze(String choice){
-
+    public void analyzeChoice(ActionEvent event){
+        if (Objects.equals(analyticsChoice.getValue(), "Day")) analyzeByDay();
+        else if (Objects.equals(analyticsChoice.getValue(), "Week")) analyzeByWeek();
+        else if (Objects.equals(analyticsChoice.getValue(), "Month")) analyzeByMonth();
+        else if (Objects.equals(analyticsChoice.getValue(), "Year")) analyzeByYear();
     }
 
     private void updateSeries(long countHypotension, long countNormal, long countElevated, long countStage1, long countStage2, long countCrisis) {
-        series.getData().add(new XYChart.Data<>("Hypotension", Math.round(countHypotension)));
-        series.getData().add(new XYChart.Data<>("Normal", Math.round(countNormal)));
-        series.getData().add(new XYChart.Data<>("Elevated", Math.round(countElevated)));
-        series.getData().add(new XYChart.Data<>("Hypertension Stage 1", Math.round(countStage1)));
-        series.getData().add(new XYChart.Data<>("Hypertension Stage 2", Math.round(countStage2)));
-        series.getData().add(new XYChart.Data<>("Hypertensive Crisis", Math.round(countCrisis)));
+        series.getData().clear();
+
+        XYChart.Data<String, Number> dataHypotension = new XYChart.Data<>("Hypotension", Math.round(countHypotension));
+        dataHypotension.nodeProperty().addListener((obs, oldNode, newNode) -> {
+            if (newNode != null) {
+                newNode.setStyle("-fx-bar-fill: #007FFF;");
+            }
+        });
+
+        XYChart.Data<String, Number> dataNormal = new XYChart.Data<>("Normal", Math.round(countNormal));
+        dataNormal.nodeProperty().addListener((obs, oldNode, newNode) -> {
+            if (newNode != null) {
+                newNode.setStyle("-fx-bar-fill: lightgreen;");
+            }
+        });
+
+        XYChart.Data<String, Number> dataElevated = new XYChart.Data<>("Elevated", Math.round(countElevated));
+        dataElevated.nodeProperty().addListener((obs, oldNode, newNode) -> {
+            if (newNode != null) {
+                newNode.setStyle("-fx-bar-fill: yellow;");
+            }
+        });
+
+        XYChart.Data<String, Number> dataStage1 = new XYChart.Data<>("Hypertension Stage 1", Math.round(countStage1));
+        dataStage1.nodeProperty().addListener((obs, oldNode, newNode) -> {
+            if (newNode != null) {
+                newNode.setStyle("-fx-bar-fill: orange;");
+            }
+        });
+
+        XYChart.Data<String, Number> dataStage2 = new XYChart.Data<>("Hypertension Stage 2", Math.round(countStage2));
+        dataStage2.nodeProperty().addListener((obs, oldNode, newNode) -> {
+            if (newNode != null) {
+                newNode.setStyle("-fx-bar-fill: red;");
+            }
+        });
+
+        XYChart.Data<String, Number> dataCrisis = new XYChart.Data<>("Hypertensive Crisis", Math.round(countCrisis));
+        dataCrisis.nodeProperty().addListener((obs, oldNode, newNode) -> {
+            if (newNode != null) {
+                newNode.setStyle("-fx-bar-fill: maroon;");
+            }
+        });
+
+        series.getData().add(dataHypotension);
+        series.getData().add(dataNormal);
+        series.getData().add(dataElevated);
+        series.getData().add(dataStage1);
+        series.getData().add(dataStage2);
+        series.getData().add(dataCrisis);
     }
 
     public void analyzeByDay(){
-        series.getData().clear();
-
         long countHypotension = currentUser.getBloodPressureLogs().entrySet().stream()
                 .filter(entry -> entry.getKey().getDayOfMonth() == LocalDateTime.now().getDayOfMonth())
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypotension"))
@@ -171,8 +202,6 @@ public class AnalyticsController implements Initializable {
 
 
     public void analyzeByWeek(){
-        series.getData().clear();
-
         long countHypotension = currentUser.getBloodPressureLogs().entrySet().stream()
                 .filter(entry -> ChronoUnit.DAYS.between(entry.getKey().toLocalDate().minusDays(entry.getKey().getDayOfWeek().getValue() - 1),  LocalDate.now()) <= 6)
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypotension"))
@@ -213,8 +242,6 @@ public class AnalyticsController implements Initializable {
     }
 
     public void analyzeByMonth(){
-        series.getData().clear();
-
         long countHypotension = currentUser.getBloodPressureLogs().entrySet().stream()
                 .filter(entry -> entry.getKey().getMonth() == LocalDate.now().getMonth())
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypotension"))
@@ -255,8 +282,6 @@ public class AnalyticsController implements Initializable {
     }
 
     public void analyzeByYear(){
-        series.getData().clear();
-
         long countHypotension = currentUser.getBloodPressureLogs().entrySet().stream()
                 .filter(entry -> entry.getKey().getYear() == LocalDate.now().getYear())
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypotension"))
