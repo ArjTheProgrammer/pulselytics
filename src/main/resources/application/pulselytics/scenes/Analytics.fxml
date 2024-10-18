@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -52,5 +56,14 @@
             <Button mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
          </children>
       </VBox>
+      <ChoiceBox fx:id="analyticsChoice" layoutX="729.0" layoutY="128.0" prefWidth="150.0" />
+      <BarChart fx:id="barChart" layoutX="35.0" layoutY="115.0" prefHeight="356.0" prefWidth="658.0" stylesheets="@../../../styles.css" title="Blood Pressure Count per type">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
     </children>
 </AnchorPane>
