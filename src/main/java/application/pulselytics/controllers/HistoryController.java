@@ -47,6 +47,9 @@ public class HistoryController implements Initializable {
     @FXML
     private Button yearMonthButton;
 
+    @FXML
+    private VBox editBox;
+
     private final User currentUser = Main.getCurrentUser();
 
     HashMap<LocalDateTime, BloodPressureLog> storage = currentUser.getBloodPressureLogs();
@@ -113,6 +116,10 @@ public class HistoryController implements Initializable {
 
     public void showSettings(){
         settingsBox.setVisible(!settingsBox.isVisible());
+    }
+
+    public void showEditBox(){
+        editBox.setVisible(true);
     }
 
     private void displayLogByYearMonth(){

@@ -81,6 +81,9 @@ public class HomeController implements Initializable {
     @FXML
     private Label inputTypeLabel;
 
+    @FXML
+    private VBox editBox;
+
     private final String[] period = {"Day", "Week", "Month", "Year"};
 
     private final User currentUser = Main.getCurrentUser();
@@ -172,6 +175,10 @@ public class HomeController implements Initializable {
 
     public void showSettings(){
         settingsBox.setVisible(!settingsBox.isVisible());
+    }
+
+    public void showEditBox(){
+        editBox.setVisible(true);
     }
 
     @FXML

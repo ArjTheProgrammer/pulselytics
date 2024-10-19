@@ -35,6 +35,9 @@ public class AnalyticsController implements Initializable {
     @FXML
     private BarChart<String, Number> barChart;
 
+    @FXML
+    private VBox editBox;
+
     XYChart.Series<String, Number> series = new XYChart.Series<>();
 
     private final String[] period = {"Day", "Week", "Month", "Year"};
@@ -98,6 +101,10 @@ public class AnalyticsController implements Initializable {
 
     public void showSettings(){
         settingsBox.setVisible(!settingsBox.isVisible());
+    }
+
+    public void showEditBox(){
+        editBox.setVisible(true);
     }
 
     public void analyzeChoice(ActionEvent event){

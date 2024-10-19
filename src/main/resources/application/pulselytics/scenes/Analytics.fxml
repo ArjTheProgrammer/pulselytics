@@ -14,6 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.AnalyticsController">
     <children>
+      <ChoiceBox fx:id="analyticsChoice" layoutX="729.0" layoutY="128.0" prefWidth="150.0" />
         <HBox prefHeight="0.0" prefWidth="900.0" styleClass="nav" stylesheets="@../../../styles.css">
             <children>
                 <Label prefHeight="94.0" prefWidth="431.0" text="Pulselytics">
@@ -52,11 +53,10 @@
         </HBox>
       <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
          <children>
-            <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
+            <Button mnemonicParsing="false" onAction="#showEditBox" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />
             <Button mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
          </children>
       </VBox>
-      <ChoiceBox fx:id="analyticsChoice" layoutX="729.0" layoutY="128.0" prefWidth="150.0" />
       <BarChart fx:id="barChart" layoutX="35.0" layoutY="115.0" prefHeight="356.0" prefWidth="658.0" stylesheets="@../../../styles.css" title="Blood Pressure Count per type">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
@@ -65,5 +65,6 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
+        <fx:include fx:id="editBox" source="Edit.fxml" />
     </children>
 </AnchorPane>
