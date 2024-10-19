@@ -30,7 +30,7 @@
                         <Insets top="5.0" />
                     </VBox.margin>
                 </Label>
-                <TextField>
+                <TextField fx:id="editNameField">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                     </VBox.margin>
@@ -50,7 +50,7 @@
                         <Insets top="5.0" />
                     </VBox.margin>
                 </Label>
-                <TextField>
+                <TextField fx:id="editUsernameField">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                     </VBox.margin>
@@ -70,14 +70,14 @@
                         <Insets top="5.0" />
                     </VBox.margin>
                 </Label>
-                <TextField>
+                <TextField fx:id="editPasswordField">
                     <VBox.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" />
                     </VBox.margin>
                 </TextField>
             </children>
         </VBox>
-        <Button mnemonicParsing="false" style="-fx-background-color: #1e5633; -fx-text-fill: white; -fx-background-radius: 20;" text="Edit">
+        <Button mnemonicParsing="false" onAction="#setEdit" style="-fx-background-color: #1e5633; -fx-text-fill: white; -fx-background-radius: 20;" text="Edit">
             <VBox.margin>
                 <Insets right="10.0" top="10.0" />
             </VBox.margin>
