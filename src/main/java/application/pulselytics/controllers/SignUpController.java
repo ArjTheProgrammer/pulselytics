@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import application.pulselytics.HelloApplication;
 import application.pulselytics.classes.Main;
+import application.pulselytics.classes.Tools;
 import application.pulselytics.classes.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,8 +53,13 @@ public class SignUpController implements Initializable {
     }
 
     public void setSignUpUser(ActionEvent event) throws IOException {
-        User user = new User(signUpName.getText(), signUpUsername.getText(), signUpPassword.getText(), signUpGender.getValue(), signUpBirthday.getValue());
-        Main.addUser(user);
-        switchToSignIn(event);
+        if (!Objects.equals(signUpName.getText(), "") && !Objects.equals(signUpUsername.getText(), "") && !Objects.equals(signUpPassword.getText(), "") && !Objects.equals(signUpGender.getValue(), null) && !Objects.equals(signUpBirthday.getValue(), null)){
+            User user = new User(signUpName.getText(), signUpUsername.getText(), signUpPassword.getText(), signUpGender.getValue(), signUpBirthday.getValue());
+            Main.addUser(user);
+            switchToSignIn(event);
+        }
+        else {
+            Tools.alert("Field/Input is empty/null");
+        }
     }
 }
