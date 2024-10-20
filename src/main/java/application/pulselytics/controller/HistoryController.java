@@ -1,10 +1,10 @@
-package application.pulselytics.controllers;
+package application.pulselytics.controller;
 
 import application.pulselytics.HelloApplication;
-import application.pulselytics.classes.BloodPressureLog;
-import application.pulselytics.classes.Main;
-import application.pulselytics.classes.Tools;
-import application.pulselytics.classes.User;
+import application.pulselytics.model.BloodPressureLog;
+import application.pulselytics.model.Main;
+import application.pulselytics.model.Tool;
+import application.pulselytics.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -134,7 +134,7 @@ public class HistoryController implements Initializable {
             displayLogs(filteredBp);
         }
         else {
-            Tools.alert("Doesn't have any record");
+            Tool.alert("Doesn't have any record");
         }
     }
 
@@ -150,10 +150,10 @@ public class HistoryController implements Initializable {
                         .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
                 displayLogs(filteredBp);
             } else {
-                Tools.alert("Doesn't have any record");
+                Tool.alert("Doesn't have any record");
             }
         } else {
-            Tools.alert("Input a date!");
+            Tool.alert("Input a date!");
         }
     }
 

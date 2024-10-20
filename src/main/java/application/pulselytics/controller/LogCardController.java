@@ -1,7 +1,7 @@
-package application.pulselytics.controllers;
+package application.pulselytics.controller;
 
-import application.pulselytics.classes.BloodPressureLog;
-import application.pulselytics.classes.User;
+import application.pulselytics.model.BloodPressureLog;
+import application.pulselytics.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

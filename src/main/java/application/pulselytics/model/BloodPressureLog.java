@@ -1,4 +1,4 @@
-package application.pulselytics.classes;
+package application.pulselytics.model;
 
 import java.time.LocalDateTime;
 

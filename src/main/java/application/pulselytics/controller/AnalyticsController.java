@@ -1,8 +1,8 @@
-package application.pulselytics.controllers;
+package application.pulselytics.controller;
 
 import application.pulselytics.HelloApplication;
-import application.pulselytics.classes.Main;
-import application.pulselytics.classes.User;
+import application.pulselytics.model.Main;
+import application.pulselytics.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -1,10 +1,10 @@
-package application.pulselytics.controllers;
+package application.pulselytics.controller;
 
 import application.pulselytics.HelloApplication;
-import application.pulselytics.classes.BloodPressureLog;
-import application.pulselytics.classes.Main;
-import application.pulselytics.classes.Tools;
-import application.pulselytics.classes.User;
+import application.pulselytics.model.BloodPressureLog;
+import application.pulselytics.model.Main;
+import application.pulselytics.model.Tool;
+import application.pulselytics.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -120,7 +120,7 @@ public class HomeController implements Initializable {
         //event listener for the systolic and diastolic input
         inputSystolic.valueProperty().addListener((observable) -> {
             if (inputSystolic.getValue() != null && inputDiastolic.getValue() != null) {
-                Tools.checkAndDisplayType(inputTypeLabel, Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
+                Tool.checkAndDisplayType(inputTypeLabel, Tool.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
             } else {
                 System.out.println("null");
             }
@@ -128,7 +128,7 @@ public class HomeController implements Initializable {
 
         inputDiastolic.valueProperty().addListener((observable) -> {
             if (inputSystolic.getValue() != null && inputDiastolic.getValue() != null) {
-                Tools.checkAndDisplayType(inputTypeLabel, Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
+                Tool.checkAndDisplayType(inputTypeLabel, Tool.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
             } else {
                 System.out.println("null");
             }
@@ -212,7 +212,7 @@ public class HomeController implements Initializable {
             closeAddRecord(); 
         }
         else {
-            Tools.alert("Invalid Systolic and Diastolic");
+            Tool.alert("Invalid Systolic and Diastolic");
         }
     }
 
@@ -225,7 +225,7 @@ public class HomeController implements Initializable {
                 inputMinute.getValue()
         );
 
-        return new BloodPressureLog(localDateTime, inputSystolic.getValue(), inputDiastolic.getValue(), Tools.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
+        return new BloodPressureLog(localDateTime, inputSystolic.getValue(), inputDiastolic.getValue(), Tool.bpTypeIdentifier(inputSystolic.getValue(), inputDiastolic.getValue()));
     }
 
     public void computeAverage(ActionEvent event){
@@ -291,7 +291,7 @@ public class HomeController implements Initializable {
         if (avgSys.isPresent() && avgDia.isPresent()) {
             aveSystolic.setText(String.valueOf(Math.round(avgSys.getAsDouble())));
             aveDiastolic.setText(String.valueOf(Math.round(avgDia.getAsDouble())));
-            Tools.checkAndDisplayType(aveType, Tools.bpTypeIdentifier((int) avgSys.getAsDouble(), (int) avgDia.getAsDouble()));
+            Tool.checkAndDisplayType(aveType, Tool.bpTypeIdentifier((int) avgSys.getAsDouble(), (int) avgDia.getAsDouble()));
         }
     }
 }

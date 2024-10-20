@@ -1,14 +1,15 @@
-package application.pulselytics.controllers;
+package application.pulselytics.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
 import application.pulselytics.HelloApplication;
-import application.pulselytics.classes.Main;
-import application.pulselytics.classes.Tools;
-import application.pulselytics.classes.User;
+import application.pulselytics.model.Main;
+import application.pulselytics.model.Tool;
+import application.pulselytics.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,13 +54,18 @@ public class SignUpController implements Initializable {
     }
 
     public void setSignUpUser(ActionEvent event) throws IOException {
-        if (!Objects.equals(signUpName.getText(), "") && !Objects.equals(signUpUsername.getText(), "") && !Objects.equals(signUpPassword.getText(), "") && !Objects.equals(signUpGender.getValue(), null) && !Objects.equals(signUpBirthday.getValue(), null)){
-            User user = new User(signUpName.getText(), signUpUsername.getText(), signUpPassword.getText(), signUpGender.getValue(), signUpBirthday.getValue());
-            Main.addUser(user);
-            switchToSignIn(event);
+        if (Main.getUserStorage().containsKey(signUpUsername.getText())){
+            Tool.alert("Username already exist!");
         }
         else {
-            Tools.alert("Field/Input is empty/null");
+            if (!Objects.equals(signUpName.getText(), "") && !Objects.equals(signUpUsername.getText(), "") && !Objects.equals(signUpPassword.getText(), "") && !Objects.equals(signUpGender.getValue(), null) && !Objects.equals(signUpBirthday.getValue(), null)){
+                User user = new User(signUpName.getText(), signUpUsername.getText(), signUpPassword.getText(), signUpGender.getValue(), signUpBirthday.getValue());
+                Main.addUser(user);
+                switchToSignIn(event);
+            }
+            else {
+                Tool.alert("Field/Input is empty/null");
+            }
         }
     }
 }
