@@ -1,10 +1,10 @@
-package application.pulselytics.classes;
+package application.pulselytics.model;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 
 
-public class Tools {
+public class Tool {
     public static String bpTypeIdentifier (int systolic, int diastolic){
         if (systolic >= 180 || diastolic >= 120) {
             return "Hypertensive Crisis";

@@ -10,6 +10,6 @@ module application.pulselytics {
 
     opens application.pulselytics to javafx.fxml;
     exports application.pulselytics;
-    exports application.pulselytics.controllers;
-    opens application.pulselytics.controllers to javafx.fxml;
+    exports application.pulselytics.controller;
+    opens application.pulselytics.controller to javafx.fxml;
 }

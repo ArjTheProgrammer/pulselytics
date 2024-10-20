@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="editBox" alignment="TOP_RIGHT" layoutX="648.0" layoutY="101.0" prefHeight="277.0" prefWidth="250.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" visible="false" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controllers.EditController">
+<VBox fx:id="editBox" alignment="TOP_RIGHT" layoutX="648.0" layoutY="101.0" prefHeight="277.0" prefWidth="250.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" visible="false" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controller.EditController">
     <children>
         <Button fx:id="closeButton" focusTraversable="false" mnemonicParsing="false" onAction="#closeEditBox" style="-fx-background-radius: 5;" text="X">
             <VBox.margin>

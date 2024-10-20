@@ -1,13 +1,11 @@
-package application.pulselytics.controllers;
+package application.pulselytics.controller;
 
-import application.pulselytics.classes.Main;
-import application.pulselytics.classes.Tools;
-import application.pulselytics.classes.User;
+import application.pulselytics.model.Main;
+import application.pulselytics.model.Tool;
+import application.pulselytics.model.User;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 import java.util.Objects;
 
@@ -28,6 +26,7 @@ public class EditController {
     User user = Main.getCurrentUser();
 
     public void closeEditBox(){
+        clear();
         editBox.setVisible(false);
     }
 
@@ -38,16 +37,23 @@ public class EditController {
             }
 
             if (!Objects.equals(editUsernameField.getText(), "")){
-                user.setName(editNameField.getText());
+                user.setUsername(editNameField.getText());
             }
 
             if (!Objects.equals(editPasswordField.getText(), "")){
-                user.setName(editNameField.getText());
+                user.setPass(editNameField.getText());
             }
+            clear();
             closeEditBox();
         }
         else {
-            Tools.alert("No edit");
+            Tool.alert("No edit");
         }
+    }
+
+    private void clear(){
+        editNameField.setText("");
+        editPasswordField.setText("");
+        editUsernameField.setText("");
     }
 }
