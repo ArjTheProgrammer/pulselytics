@@ -51,8 +51,8 @@ public class AnalyticsController implements Initializable {
         series.getData().add(new XYChart.Data<>("Hypotension", 0));
         series.getData().add(new XYChart.Data<>("Normal", 0));
         series.getData().add(new XYChart.Data<>("Elevated", 0));
-        series.getData().add(new XYChart.Data<>("Stage 1", 0));
-        series.getData().add(new XYChart.Data<>("Stage 2", 0));
+        series.getData().add(new XYChart.Data<>("Hypertension Stage 1", 0));
+        series.getData().add(new XYChart.Data<>("Hypertension Stage 2", 0));
         series.getData().add(new XYChart.Data<>("Hypertensive Crisis", 0));
 
         barChart.getData().add(series);
