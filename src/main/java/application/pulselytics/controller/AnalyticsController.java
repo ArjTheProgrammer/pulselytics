@@ -11,8 +11,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,6 +40,25 @@ public class AnalyticsController implements Initializable {
 
     @FXML
     private VBox editBox;
+
+    @FXML
+    private Label hypoLabel;
+
+    @FXML
+    private Label normalLabel;
+
+    @FXML
+     private Label elevatedLabel;
+
+    @FXML
+    private Label stage1Label;
+
+    @FXML
+    private Label stage2Label;
+
+    @FXML
+    private Label crisisLabel;
+
 
     XYChart.Series<String, Number> series = new XYChart.Series<>();
 
@@ -204,7 +226,7 @@ public class AnalyticsController implements Initializable {
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypertensive Crisis"))
                 .count();
 
-        updateSeries(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
+        displayCount(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
     }
 
 
@@ -245,7 +267,7 @@ public class AnalyticsController implements Initializable {
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypertensive Crisis"))
                 .count();
 
-        updateSeries(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
+        displayCount(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
     }
 
     public void analyzeByMonth(){
@@ -285,7 +307,7 @@ public class AnalyticsController implements Initializable {
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypertensive Crisis"))
                 .count();
 
-        updateSeries(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
+        displayCount(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
     }
 
     public void analyzeByYear(){
@@ -324,6 +346,17 @@ public class AnalyticsController implements Initializable {
                 .filter(entry -> entry.getKey().getYear() == LocalDate.now().getYear())
                 .filter(entry -> Objects.equals(entry.getValue().getType(), "Hypertensive Crisis"))
                 .count();
+
+        displayCount(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
+    }
+
+    private void displayCount(long countHypotension, long countNormal, long countElevated, long countStage1, long countStage2, long countCrisis) {
+        hypoLabel.setText(Integer.toString(Math.round(countHypotension)));
+        normalLabel.setText(Integer.toString(Math.round(countNormal)));
+        elevatedLabel.setText(Integer.toString(Math.round(countElevated)));
+        stage1Label.setText(Integer.toString(Math.round(countStage1)));
+        stage2Label.setText(Integer.toString(Math.round(countStage2)));
+        crisisLabel.setText(Integer.toString(Math.round(countCrisis)));
 
         updateSeries(countHypotension, countNormal, countElevated, countStage1, countStage2, countCrisis);
     }

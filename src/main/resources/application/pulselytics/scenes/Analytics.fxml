@@ -14,7 +14,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.pulselytics.controller.AnalyticsController">
     <children>
-      <ChoiceBox fx:id="analyticsChoice" layoutX="729.0" layoutY="128.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="analyticsChoice" layoutX="693.0" layoutY="128.0" prefHeight="26.0" prefWidth="186.0" />
         <HBox prefHeight="0.0" prefWidth="900.0" styleClass="nav" stylesheets="@../../../styles.css">
             <children>
                 <Label prefHeight="94.0" prefWidth="431.0" text="Pulselytics">
@@ -57,14 +57,108 @@
             <Button mnemonicParsing="false" onAction="#switchToSignIn" prefHeight="26.0" prefWidth="137.0" text="Log Out" />
          </children>
       </VBox>
-      <BarChart fx:id="barChart" layoutX="35.0" layoutY="115.0" prefHeight="356.0" prefWidth="658.0" stylesheets="@../../../styles.css" title="Blood Pressure Count per type">
+      <BarChart fx:id="barChart" layoutX="35.0" layoutY="115.0" prefHeight="356.0" prefWidth="629.0" stylesheets="@../../../styles.css" title="Blood Pressure Count per type">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis label="Types" side="BOTTOM">
+               <tickLabelFont>
+                  <Font name="Arial Rounded MT Bold" size="8.0" />
+               </tickLabelFont></CategoryAxis>
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="yAxis" label="Frequency" minorTickVisible="false" tickLabelGap="5.0" tickUnit="10.0">
+               <tickLabelFont>
+                  <Font name="Arial Rounded MT Bold" size="8.0" />
+               </tickLabelFont></NumberAxis>
         </yAxis>
       </BarChart>
         <fx:include fx:id="editBox" source="Edit.fxml" />
+      <VBox layoutX="693.0" layoutY="184.0" prefHeight="278.0" prefWidth="186.0">
+         <children>
+            <HBox prefHeight="51.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="114.0" text="Hypotension">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="hypoLabel" alignment="CENTER" prefHeight="52.0" prefWidth="75.0" text="0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="51.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="114.0" text="Normal">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="normalLabel" alignment="CENTER" prefHeight="52.0" prefWidth="75.0" text="0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="51.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="114.0" text="Elevated">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="elevatedLabel" alignment="CENTER" prefHeight="52.0" prefWidth="75.0" text="0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="51.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="114.0" text="Hypertension Stage 1" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="stage1Label" alignment="CENTER" prefHeight="52.0" prefWidth="75.0" text="0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="51.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="114.0" text="Hypertension Stage 2" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="stage2Label" alignment="CENTER" prefHeight="52.0" prefWidth="75.0" text="0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="51.0" prefWidth="150.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="51.0" prefWidth="114.0" text="Hypertensive Crisis" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="crisisLabel" alignment="CENTER" prefHeight="52.0" prefWidth="75.0" text="0">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
     </children>
 </AnchorPane>
