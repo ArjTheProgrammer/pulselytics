@@ -190,7 +190,11 @@
             </HBox>
          </children>
       </VBox>
-      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="CENTER" layoutX="199.0" layoutY="14.0" prefHeight="449.0" prefWidth="430.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;" visible="false">
+      <Button fx:id="addRecordButton" focusTraversable="false" layoutX="697.0" layoutY="426.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" styleClass="add-record" stylesheets="@../../../styles.css" text="+ Add Record">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      <VBox id="InputBloodPressure" fx:id="addRecordBox" alignment="TOP_CENTER" layoutX="112.0" layoutY="26.0" prefHeight="447.0" prefWidth="674.0" style="-fx-background-color: #69cc8c; -fx-border-color: #2d7a49; -fx-border-radius: 20; -fx-background-radius: 20;">
          <children>
             <HBox alignment="TOP_RIGHT" prefHeight="36.0" prefWidth="340.0">
                <children>
@@ -204,100 +208,109 @@
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="79.0" prefWidth="340.0">
+            <HBox alignment="CENTER" prefHeight="363.0" prefWidth="692.0">
                <children>
-                  <VBox prefHeight="79.0" prefWidth="171.0">
+                  <VBox alignment="CENTER" prefHeight="118.0" prefWidth="410.0">
                      <children>
-                        <Spinner fx:id="inputSystolic" editable="true" prefHeight="42.0" prefWidth="170.0" />
-                        <Label alignment="CENTER" prefHeight="39.0" prefWidth="174.0" text="Systolic">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
+                        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="340.0">
+                           <children>
+                              <VBox prefHeight="79.0" prefWidth="171.0">
+                                 <children>
+                                    <Spinner fx:id="inputSystolic" editable="true" prefHeight="42.0" prefWidth="170.0" />
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="174.0" text="Systolic">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="79.0" prefWidth="171.0">
+                                 <children>
+                                    <Spinner fx:id="inputDiastolic" editable="true" prefHeight="42.0" prefWidth="170.0" />
+                                    <Label alignment="CENTER" prefHeight="39.0" prefWidth="174.0" text="Diastolic">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="45.0" prefWidth="263.0">
+                           <children>
+                              <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="340.0" spacing="20.0">
+                                 <children>
+                                    <DatePicker fx:id="inputDate" prefHeight="26.0" prefWidth="194.0" promptText="Date" />
+                                    <Spinner fx:id="inputHour" editable="true" />
+                                    <Spinner fx:id="inputMinute" editable="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="340.0" spacing="20.0">
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                                 <children>
+                                    <Label alignment="CENTER" prefWidth="152.0" text="Date">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefWidth="108.0" text="Hour (military)">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefWidth="108.0" text="Minute (military)">
+                                       <font>
+                                          <Font name="Arial Rounded MT Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER" prefHeight="36.0" prefWidth="408.0" spacing="20.0">
+                           <children>
+                              <Label text="Type:">
+                                 <font>
+                                    <Font name="Arial Black" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="inputTypeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: darkgrey;" text="none">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="79.0" prefWidth="171.0">
-                     <children>
-                        <Spinner fx:id="inputDiastolic" editable="true" prefHeight="42.0" prefWidth="170.0" />
-                        <Label alignment="CENTER" prefHeight="39.0" prefWidth="174.0" text="Diastolic">
-                           <font>
-                              <Font name="System Bold" size="16.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </VBox>
+                  <ImageView fitHeight="330.0" fitWidth="258.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Image/bloodPressureChart.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </ImageView>
                </children>
             </HBox>
-            <VBox prefHeight="45.0" prefWidth="408.0">
+            <HBox alignment="CENTER" prefHeight="108.0" prefWidth="652.0">
                <children>
-                  <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="340.0" spacing="20.0">
-                     <children>
-                        <DatePicker fx:id="inputDate" prefHeight="26.0" prefWidth="194.0" promptText="Date" />
-                        <Spinner fx:id="inputHour" editable="true" />
-                        <Spinner fx:id="inputMinute" editable="true" />
-                     </children>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="66.0" prefWidth="340.0" spacing="20.0">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                     <children>
-                        <Label alignment="CENTER" prefWidth="152.0" text="Date">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefWidth="108.0" text="Hour (military)">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="12.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="CENTER" prefWidth="108.0" text="Minute (military)">
-                           <font>
-                              <Font name="Arial Rounded MT Bold" size="12.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </VBox>
-            <HBox alignment="CENTER" prefHeight="36.0" prefWidth="408.0" spacing="20.0">
-               <children>
-                  <Label text="Type:">
-                     <font>
-                        <Font name="Arial Black" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="inputTypeLabel" alignment="CENTER" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: darkgrey;" text="none">
-                     <font>
-                        <Font name="Arial Rounded MT Bold" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <ImageView fitHeight="156.0" fitWidth="313.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../Image/BloodPressureType.png" />
-               </image>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </ImageView>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="57.0" prefWidth="340.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#setAddRecord" prefHeight="50.0" prefWidth="120.0" style="-fx-background-color: #2d7a49; -fx-background-radius: 20;" text="Submit">
+                  <Button mnemonicParsing="false" onAction="#setAddRecord" prefHeight="45.0" prefWidth="206.0" style="-fx-background-color: #2d7a49; -fx-background-radius: 20;" text="Submit">
                      <font>
                         <Font name="Arial Rounded MT Bold" size="12.0" />
                      </font>
                      <HBox.margin>
                         <Insets top="10.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>
@@ -305,10 +318,6 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
-      <Button fx:id="addRecordButton" focusTraversable="false" layoutX="697.0" layoutY="426.0" mnemonicParsing="false" onAction="#showAddRecord" prefHeight="60.0" prefWidth="174.0" styleClass="add-record" stylesheets="@../../../styles.css" text="+ Add Record">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font></Button>
       <VBox fx:id="settingsBox" layoutX="765.0" layoutY="101.0" prefHeight="54.0" prefWidth="134.0" styleClass="settings-box" stylesheets="@../../../styles.css" visible="false">
          <children>
             <Button mnemonicParsing="false" onAction="#showEditBox" prefHeight="26.0" prefWidth="137.0" text="Edit Profile" />

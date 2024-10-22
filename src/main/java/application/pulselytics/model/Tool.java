@@ -10,11 +10,11 @@ public class Tool {
             return "Hypertensive Crisis";
         } else if (systolic >= 140 || diastolic >= 90) {
             return "Hypertension Stage 2";
-        } else if (systolic >= 130 || diastolic > 80) {
+        } else if (systolic >= 130 || diastolic >= 80) {
             return "Hypertension Stage 1";
-        } else if (systolic >= 120 && diastolic < 80) {
+        } else if (systolic >= 120) {
             return "Elevated";
-        } else if (systolic >= 90 && diastolic < 80) {
+        } else if (systolic >= 90) {
             return "Normal";
         } else {
             return "Hypotension";
